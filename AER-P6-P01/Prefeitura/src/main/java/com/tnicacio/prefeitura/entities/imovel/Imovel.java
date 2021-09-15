@@ -1,7 +1,7 @@
 package com.tnicacio.prefeitura.entities.imovel;
 
-import com.tnicacio.prefeitura.entities.enums.Localizacao;
-import com.tnicacio.prefeitura.servicos.definirvalorcomportamento.DefinirValorComportamento;
+import com.tnicacio.prefeitura.entities.localizacao.Localizacao;
+import com.tnicacio.prefeitura.services.definirvalorcomportamento.DefinirValorComportamento;
 
 public abstract class Imovel {
 

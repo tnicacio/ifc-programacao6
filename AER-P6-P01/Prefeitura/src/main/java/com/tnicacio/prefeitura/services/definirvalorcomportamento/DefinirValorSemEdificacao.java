@@ -1,4 +1,4 @@
-package com.tnicacio.prefeitura.servicos.definirvalorcomportamento;
+package com.tnicacio.prefeitura.services.definirvalorcomportamento;
 
 import com.tnicacio.prefeitura.entities.imovel.Imovel;
 
@@ -12,7 +12,8 @@ public class DefinirValorSemEdificacao implements  DefinirValorComportamento {
 
     @Override
     public float definirValor() {
-        return imovel.getLocalizacao().calcularValor(imovel);
+        return imovel.getLocalizacao().getValorFixo() +
+                (imovel.getEspaco() * imovel.getLocalizacao().getValorM2());
     }
 
 }

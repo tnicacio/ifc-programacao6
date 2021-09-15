@@ -1,4 +1,4 @@
-package com.tnicacio.prefeitura.servicos.definirvalorcomportamento;
+package com.tnicacio.prefeitura.services.definirvalorcomportamento;
 
 public interface DefinirValorComportamento {
 

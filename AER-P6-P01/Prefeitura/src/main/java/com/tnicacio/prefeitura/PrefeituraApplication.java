@@ -1,6 +1,6 @@
 package com.tnicacio.prefeitura;
 
-import com.tnicacio.prefeitura.entities.enums.Localizacao;
+import com.tnicacio.prefeitura.entities.enums.localizacao.Localizacao;
 import com.tnicacio.prefeitura.entities.imovel.Imovel;
 import com.tnicacio.prefeitura.entities.imovel.impl.Casa;
 

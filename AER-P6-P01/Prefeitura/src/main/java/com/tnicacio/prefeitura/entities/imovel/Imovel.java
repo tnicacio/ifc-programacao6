@@ -1,7 +1,7 @@
 package com.tnicacio.prefeitura.entities.imovel;
 
-import com.tnicacio.prefeitura.entities.enums.Localizacao;
-import com.tnicacio.prefeitura.servicos.definirvalorcomportamento.DefinirValorComportamento;
+import com.tnicacio.prefeitura.entities.enums.localizacao.Localizacao;
+import com.tnicacio.prefeitura.services.definirvalorcomportamento.DefinirValorComportamento;
 
 public abstract class Imovel {
 
@@ -18,6 +18,10 @@ public abstract class Imovel {
 
     public void setDefinirValorComportamento(DefinirValorComportamento valor) {
         this.valor = valor;
+    }
+
+    public float calcularValor() {
+        return valor.definirValor();
     }
 
     public int getComodos() {
@@ -42,10 +46,6 @@ public abstract class Imovel {
 
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
-    }
-
-    public float calcularValor() {
-        return valor.definirValor();
     }
 
 }

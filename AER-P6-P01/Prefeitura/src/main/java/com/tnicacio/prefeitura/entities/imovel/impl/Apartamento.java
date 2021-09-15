@@ -4,9 +4,9 @@ import com.tnicacio.prefeitura.entities.enums.localizacao.Localizacao;
 import com.tnicacio.prefeitura.entities.imovel.Imovel;
 import com.tnicacio.prefeitura.services.definirvalorcomportamento.DefinirValorComEdificacao;
 
-public class Casa extends Imovel {
+public class Apartamento extends Imovel {
 
-    public Casa(Localizacao localizacao, float espaco, int comodos) {
+    public Apartamento(Localizacao localizacao, float espaco, int comodos) {
         super(localizacao, espaco, comodos);
         setDefinirValorComportamento(new DefinirValorComEdificacao(this));
     }

@@ -45,7 +45,7 @@ public abstract class Imovel {
     }
 
     public float calcularValor() {
-        return valor.definirValor();
+        return valor.definirValor(this);
     }
 
 }

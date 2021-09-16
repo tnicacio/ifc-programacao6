@@ -8,7 +8,7 @@ public class Casa extends Imovel {
 
     public Casa(Localizacao localizacao, float espaco, int comodos) {
         super(localizacao, espaco, comodos);
-        setDefinirValorComportamento(new DefinirValorComEdificacao(this));
+        setDefinirValorComportamento(new DefinirValorComEdificacao());
     }
 
 }

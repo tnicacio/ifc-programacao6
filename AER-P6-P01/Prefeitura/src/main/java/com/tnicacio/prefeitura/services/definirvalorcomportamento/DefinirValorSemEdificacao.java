@@ -4,14 +4,8 @@ import com.tnicacio.prefeitura.entities.imovel.Imovel;
 
 public class DefinirValorSemEdificacao implements  DefinirValorComportamento {
 
-    private Imovel imovel;
-
-    public DefinirValorSemEdificacao(Imovel imovel) {
-        this.imovel = imovel;
-    }
-
     @Override
-    public float definirValor() {
+    public float definirValor(Imovel imovel) {
         return imovel.getLocalizacao().getValorFixo() +
                 (imovel.getEspaco() * imovel.getLocalizacao().getValorM2());
     }

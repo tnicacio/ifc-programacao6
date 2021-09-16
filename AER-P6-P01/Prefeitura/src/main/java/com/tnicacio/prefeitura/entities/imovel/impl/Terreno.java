@@ -8,7 +8,7 @@ public class Terreno extends Imovel {
 
     public Terreno(Localizacao localizacao, float espaco, int comodos) {
         super(localizacao, espaco, comodos);
-        setDefinirValorComportamento(new DefinirValorSemEdificacao(this));
+        setDefinirValorComportamento(new DefinirValorSemEdificacao());
     }
 
 }

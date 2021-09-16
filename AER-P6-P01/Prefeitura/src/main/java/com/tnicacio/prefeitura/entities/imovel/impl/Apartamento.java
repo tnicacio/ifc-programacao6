@@ -8,7 +8,7 @@ public class Apartamento extends Imovel {
 
     public Apartamento(Localizacao localizacao, float espaco, int comodos) {
         super(localizacao, espaco, comodos);
-        setDefinirValorComportamento(new DefinirValorComEdificacao(this));
+        setDefinirValorComportamento(new DefinirValorComEdificacao());
     }
 
 }

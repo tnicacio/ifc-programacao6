@@ -16,7 +16,7 @@ public class IateTest {
     }
 
     @Test
-    public void shouldReturnMovimentationModeRemos() {
+    public void shouldReturnMovimentationModeMotor() {
         assertEquals(MovimentationType.MOTOR, iate.getMovimentationMode());
     }
 

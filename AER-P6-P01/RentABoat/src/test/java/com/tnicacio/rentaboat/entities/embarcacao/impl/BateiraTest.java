@@ -16,7 +16,7 @@ public class BateiraTest {
     }
 
     @Test
-    public void shouldReturnMovimentationModeRemos() {
+    public void shouldReturnMovimentationModeMotor() {
         assertEquals(MovimentationType.MOTOR, bateira.getMovimentationMode());
     }
 

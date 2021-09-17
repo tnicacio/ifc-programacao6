@@ -16,7 +16,7 @@ public class BarcoAVelaTest {
     }
 
     @Test
-    public void shouldReturnMovimentationModeRemos() {
+    public void shouldReturnMovimentationModeVela() {
         assertEquals(MovimentationType.VELA, barcoAVela.getMovimentationMode());
     }
 

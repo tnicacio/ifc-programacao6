@@ -1,5 +1,8 @@
 package com.tnicacio.rentaboat;
 
+import com.tnicacio.rentaboat.entities.embarcacao.Embarcacao;
+import com.tnicacio.rentaboat.entities.embarcacao.impl.Jangada;
+
 public class RentABoatApplication {
 
     /*
@@ -10,6 +13,9 @@ public class RentABoatApplication {
     movimentando.
     */
     public static void main(String... args) {
-        System.out.println("Olá");
+
+        Embarcacao jangada = new Jangada();
+        System.out.println(jangada.getModoDeMovimentacao().name());
+
     }
 }

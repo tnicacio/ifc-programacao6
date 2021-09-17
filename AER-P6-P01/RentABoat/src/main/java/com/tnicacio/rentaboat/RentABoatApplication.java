@@ -15,7 +15,7 @@ public class RentABoatApplication {
     public static void main(String... args) {
 
         Embarcacao jangada = new Jangada();
-        System.out.println(jangada.getModoDeMovimentacao().name());
+        System.out.println(jangada.getMovimentationMode().getValue());
 
     }
 }

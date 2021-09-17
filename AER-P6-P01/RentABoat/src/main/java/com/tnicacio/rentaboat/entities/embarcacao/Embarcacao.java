@@ -1,18 +1,18 @@
 package com.tnicacio.rentaboat.entities.embarcacao;
 
-import com.tnicacio.rentaboat.entities.enums.TipoMovimentacao;
-import com.tnicacio.rentaboat.services.EstrategiaMovimentacao.estrategiamovimentacao.EstrategiaMovimentacao;
+import com.tnicacio.rentaboat.entities.enums.MovimentationType;
+import com.tnicacio.rentaboat.strategies.movimentationstrategy.MovimentationStrategy;
 
 public abstract class Embarcacao {
 
-    EstrategiaMovimentacao estrategiaMovimentacao;
+    MovimentationStrategy movimentationStrategy;
 
-    public void setEstrategiaMovimentacao(EstrategiaMovimentacao estrategiaMovimentacao) {
-        this.estrategiaMovimentacao = estrategiaMovimentacao;
+    public void setMovimentationStrategy(MovimentationStrategy movimentationStrategy) {
+        this.movimentationStrategy = movimentationStrategy;
     }
 
-    public TipoMovimentacao getModoDeMovimentacao() {
-        return estrategiaMovimentacao.modoMovimentacao();
+    public MovimentationType getMovimentationMode() {
+        return movimentationStrategy.movimentationMode();
     }
 
 }

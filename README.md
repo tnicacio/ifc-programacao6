@@ -9,4 +9,4 @@ Exercícios realizados por mim para a disciplina de Programação 6, ministrada 
 
 ### :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/Prefeitura)
 
-### :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/Prefeitura)
+### :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/RentABoat)

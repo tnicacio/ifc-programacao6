@@ -1,24 +1,24 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.quackbehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.quackbehavior;
 
-import com.tnicacio.ducktales.enums.QuackBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.QuackBehaviorConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class SqueakTest {
+public class QuackTest {
 
     @Nested
-    class Quack {
+    class DoQuack {
 
         private final PrintStream standardOut = System.out;
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        private Squeak squeak;
+        private Quack quack;
 
         @BeforeEach
         public void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            squeak = new Squeak();
+            quack = new Quack();
         }
 
         @AfterEach
@@ -27,9 +27,9 @@ public class SqueakTest {
         }
 
         @Test
-        void shouldSqueak() {
-            squeak.quack();
-            Assertions.assertEquals(QuackBehaviorConstants.SQUEAK.toString(), outputStreamCaptor.toString().trim());
+        void shouldQuack() {
+            quack.quack();
+            Assertions.assertEquals(QuackBehaviorConstants.QUACK.toString(), outputStreamCaptor.toString().trim());
         }
     }
 

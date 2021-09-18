@@ -1,9 +1,9 @@
 package com.tnicacio.ducktales.entities.duck.impl;
 
 import com.tnicacio.ducktales.entities.duck.Duck;
-import com.tnicacio.ducktales.entities.duck.behaviors.flybehavior.FlyNoWay;
-import com.tnicacio.ducktales.entities.duck.behaviors.quackbehavior.MuteQuack;
-import com.tnicacio.ducktales.enums.DuckConstants;
+import com.tnicacio.ducktales.services.duckbehaviors.flybehavior.FlyNoWay;
+import com.tnicacio.ducktales.services.duckbehaviors.quackbehavior.MuteQuack;
+import com.tnicacio.ducktales.entities.enums.DuckConstants;
 
 public class DecoyDuck extends Duck {
 

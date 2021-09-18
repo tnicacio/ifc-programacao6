@@ -1,24 +1,24 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.flybehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.flybehavior;
 
-import com.tnicacio.ducktales.enums.FlyBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.FlyBehaviorConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-class FlyWithWingsTest {
+class FlyNoWayTest {
 
     @Nested
     class Fly {
 
         private final PrintStream standardOut = System.out;
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        private FlyWithWings flyWithWings;
+        private FlyNoWay flyNoWay;
 
         @BeforeEach
         public void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            flyWithWings = new FlyWithWings();
+            flyNoWay = new FlyNoWay();
         }
 
         @AfterEach
@@ -27,9 +27,9 @@ class FlyWithWingsTest {
         }
 
         @Test
-        void shouldFlyWithWings() {
-            flyWithWings.fly();
-            Assertions.assertEquals(FlyBehaviorConstants.FLY_WITH_WINGS.toString(), outputStreamCaptor.toString().trim());
+        void shouldFlyNoWay() {
+            flyNoWay.fly();
+            Assertions.assertEquals(FlyBehaviorConstants.FLY_NO_WAY.toString(), outputStreamCaptor.toString().trim());
         }
     }
 

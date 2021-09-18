@@ -1,4 +1,4 @@
-package com.tnicacio.ducktales.enums;
+package com.tnicacio.ducktales.entities.enums;
 
 public enum DuckConstants {
 

@@ -1,24 +1,24 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.flybehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.quackbehavior;
 
-import com.tnicacio.ducktales.enums.FlyBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.QuackBehaviorConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-class FlyNoWayTest {
+public class MuteQuackTest {
 
     @Nested
-    class Fly {
+    class Quack {
 
         private final PrintStream standardOut = System.out;
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        private FlyNoWay flyNoWay;
+        private MuteQuack muteQuack;
 
         @BeforeEach
         public void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            flyNoWay = new FlyNoWay();
+            muteQuack = new MuteQuack();
         }
 
         @AfterEach
@@ -27,9 +27,9 @@ class FlyNoWayTest {
         }
 
         @Test
-        void shouldFlyNoWay() {
-            flyNoWay.fly();
-            Assertions.assertEquals(FlyBehaviorConstants.FLY_NO_WAY.toString(), outputStreamCaptor.toString().trim());
+        void shouldNotBeAbleToQuack() {
+            muteQuack.quack();
+            Assertions.assertEquals(QuackBehaviorConstants.MUTE_QUACK.toString(), outputStreamCaptor.toString().trim());
         }
     }
 

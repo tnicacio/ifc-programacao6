@@ -1,6 +1,6 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.quackbehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.quackbehavior;
 
-import com.tnicacio.ducktales.enums.QuackBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.QuackBehaviorConstants;
 
 public class Quack implements QuackBehavior {
 

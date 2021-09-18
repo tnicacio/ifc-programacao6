@@ -1,9 +1,9 @@
 package com.tnicacio.ducktales.entities.duck.impl;
 
 import com.tnicacio.ducktales.entities.duck.Duck;
-import com.tnicacio.ducktales.entities.duck.behaviors.flybehavior.FlyWithWings;
-import com.tnicacio.ducktales.entities.duck.behaviors.quackbehavior.Quack;
-import com.tnicacio.ducktales.enums.DuckConstants;
+import com.tnicacio.ducktales.services.duckbehaviors.flybehavior.FlyWithWings;
+import com.tnicacio.ducktales.services.duckbehaviors.quackbehavior.Quack;
+import com.tnicacio.ducktales.entities.enums.DuckConstants;
 
 public class RedheadDuck extends Duck {
 

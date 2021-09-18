@@ -1,6 +1,6 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.flybehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.flybehavior;
 
-import com.tnicacio.ducktales.enums.FlyBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.FlyBehaviorConstants;
 
 public class FlyWithWings implements FlyBehavior {
 

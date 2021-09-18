@@ -1,8 +1,8 @@
 package com.tnicacio.ducktales.entities.duck.impl;
 
-import com.tnicacio.ducktales.enums.DuckConstants;
-import com.tnicacio.ducktales.enums.FlyBehaviorConstants;
-import com.tnicacio.ducktales.enums.QuackBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.DuckConstants;
+import com.tnicacio.ducktales.entities.enums.FlyBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.QuackBehaviorConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;

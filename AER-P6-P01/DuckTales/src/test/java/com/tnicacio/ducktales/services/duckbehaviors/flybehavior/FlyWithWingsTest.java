@@ -1,24 +1,24 @@
-package com.tnicacio.ducktales.entities.duck.behaviors.quackbehavior;
+package com.tnicacio.ducktales.services.duckbehaviors.flybehavior;
 
-import com.tnicacio.ducktales.enums.QuackBehaviorConstants;
+import com.tnicacio.ducktales.entities.enums.FlyBehaviorConstants;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class QuackTest {
+class FlyWithWingsTest {
 
     @Nested
-    class DoQuack {
+    class Fly {
 
         private final PrintStream standardOut = System.out;
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        private Quack quack;
+        private FlyWithWings flyWithWings;
 
         @BeforeEach
         public void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            quack = new Quack();
+            flyWithWings = new FlyWithWings();
         }
 
         @AfterEach
@@ -27,9 +27,9 @@ public class QuackTest {
         }
 
         @Test
-        void shouldQuack() {
-            quack.quack();
-            Assertions.assertEquals(QuackBehaviorConstants.QUACK.toString(), outputStreamCaptor.toString().trim());
+        void shouldFlyWithWings() {
+            flyWithWings.fly();
+            Assertions.assertEquals(FlyBehaviorConstants.FLY_WITH_WINGS.toString(), outputStreamCaptor.toString().trim());
         }
     }
 

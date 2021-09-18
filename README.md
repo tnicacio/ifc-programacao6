@@ -12,7 +12,7 @@ Implementar o modelo de Lagoa dos Patos do livro *Head First: Design Patterns - 
   
 ### :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/Prefeitura)
 
-Utilize o padrão STRATEGY implementar as classes necessárias para fazer cálculo de valor 
+Utilize o padrão STRATEGY para implementar as classes necessárias para fazer cálculo de valor 
 venal de imóveis dependendo de características dos mesmos. A Prefeitura quer definir o valor 
 dos imóveis da cidade para posteriormente poder atribuir o valor do IPTU. Para isto ela dividiu 
 a cidade em regiões (A, B e C). Casas e Aptos na região A tem um valor de 3000,00 o m2. Na 

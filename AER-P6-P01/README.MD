@@ -1,5 +1,5 @@
 # AER-P6-P01: STRATEGY
-Exercícios relativos ao padrão de projetos *Strategy*
+Exercícios relativos ao padrão de projeto *Strategy*
 
 ## :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/DuckTales)
 

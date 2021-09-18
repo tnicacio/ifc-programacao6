@@ -4,6 +4,7 @@ Exercícios realizados por mim para a disciplina de Programação 6, ministrada 
 # Padrões de Projeto em Java
 
 ## [AER-P6-P01: STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01)
+Exercícios relativos ao padrão de projetos *Strategy*
 
 ### :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/DuckTales)
 

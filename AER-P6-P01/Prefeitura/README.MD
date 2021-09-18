@@ -1,4 +1,4 @@
-# :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/Prefeitura)
+# :classical_building: Prefeitura
 
 Utilize o padrão STRATEGY para implementar as classes necessárias para fazer cálculo de valor 
 venal de imóveis dependendo de características dos mesmos. A Prefeitura quer definir o valor 

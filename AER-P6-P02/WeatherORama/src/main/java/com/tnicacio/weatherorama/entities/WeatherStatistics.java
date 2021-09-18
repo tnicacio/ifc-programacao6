@@ -9,9 +9,6 @@ public class WeatherStatistics {
     private float tempSum;
     private int numReadings;
 
-    public WeatherStatistics() {
-    }
-
     public WeatherStatistics(float maxTemp, float minTemp, float tempSum, int numReadings) {
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;

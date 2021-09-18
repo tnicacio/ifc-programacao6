@@ -44,4 +44,16 @@ public class ForecastDisplay implements Observer, DisplayElement, Subscriber {
         weatherDataManager.removeObserver(this);
     }
 
+    public WeatherDataManager getWeatherDataManager() {
+        return weatherDataManager;
+    }
+
+    public float getCurrentPressure() {
+        return currentPressure;
+    }
+
+    public float getLastPressure() {
+        return lastPressure;
+    }
+
 }

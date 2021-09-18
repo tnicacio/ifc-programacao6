@@ -15,7 +15,6 @@ public class HeatIndexDisplay implements Observer, DisplayElement, Subscriber {
     public HeatIndexDisplay(WeatherDataManager weatherDataManager) {
         this.weatherDataManager = weatherDataManager;
         weatherDataManager.registerObserver(this);
-        heatIndex = 0.0f;
     }
 
     @Override
@@ -73,6 +72,14 @@ public class HeatIndexDisplay implements Observer, DisplayElement, Subscriber {
         );
 
         return heatIndexInCelsius.floatValue();
+    }
+
+    public WeatherDataManager getWeatherDataManager() {
+        return weatherDataManager;
+    }
+
+    public float getHeatIndex() {
+        return heatIndex;
     }
 
 }

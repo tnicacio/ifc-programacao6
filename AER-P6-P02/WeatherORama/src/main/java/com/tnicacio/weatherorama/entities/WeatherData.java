@@ -8,9 +8,6 @@ public class WeatherData {
     private float humidity;
     private float pressure;
 
-    public WeatherData() {
-    }
-
     public WeatherData(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;

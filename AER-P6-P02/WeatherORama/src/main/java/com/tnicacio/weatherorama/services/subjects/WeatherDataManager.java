@@ -43,4 +43,8 @@ public class WeatherDataManager implements Subject {
         return weatherData;
     }
 
+    public Set<Observer> getObservers() {
+        return observers;
+    }
+
 }

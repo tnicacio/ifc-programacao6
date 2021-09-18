@@ -38,4 +38,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement, Subsc
         weatherDataManager.removeObserver(this);
     }
 
+    public WeatherDataManager getWeatherDataManager() {
+        return weatherDataManager;
+    }
+
+    public WeatherData getWeatherData() {
+        return weatherData;
+    }
+
 }

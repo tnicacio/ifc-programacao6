@@ -17,23 +17,22 @@ class CurrentConditionsDisplayTest {
     private CurrentConditionsDisplay currentConditionsDisplay;
     private WeatherDataManager weatherDataManager;
 
+    @BeforeEach
+    void setUp() {
+        weatherDataManager = new WeatherDataManager();
+        currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
+    }
+
     @Nested
     class Constructor {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-        }
-
         @Test
         void shouldSetWeatherDataManager() {
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
             assertThat(currentConditionsDisplay.getWeatherDataManager()).isSameAs(weatherDataManager);
         }
 
         @Test
         void shouldRegisterItselfAsAnObserver() {
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
             assertThat(weatherDataManager.getObservers()).hasSize(1).containsOnlyOnce(currentConditionsDisplay);
         }
 
@@ -41,12 +40,6 @@ class CurrentConditionsDisplayTest {
 
     @Nested
     class Update {
-
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
-        }
 
         @Test
         void shouldSetNewWeatherData() {
@@ -66,14 +59,12 @@ class CurrentConditionsDisplayTest {
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         @BeforeEach
-        public void setUp() {
+        void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            weatherDataManager = new WeatherDataManager();
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
         }
 
         @AfterEach
-        public void tearDown() {
+        void tearDown() {
             System.setOut(standardOut);
         }
 
@@ -96,14 +87,8 @@ class CurrentConditionsDisplayTest {
     @Nested
     class Subscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldRegisterItselfAsAnObserver() {
+        void shouldRegisterItselfAsAnObserver() {
             currentConditionsDisplay.subscribe();
             assertThat(weatherDataManager.getObservers()).containsOnlyOnce(currentConditionsDisplay);
         }
@@ -113,14 +98,8 @@ class CurrentConditionsDisplayTest {
     @Nested
     class Unsubscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            currentConditionsDisplay = new CurrentConditionsDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldUnregisterItselfAsAnObserver() {
+        void shouldUnregisterItselfAsAnObserver() {
             currentConditionsDisplay.unsubscribe();
             assertThat(weatherDataManager.getObservers()).doesNotContain(currentConditionsDisplay);
         }

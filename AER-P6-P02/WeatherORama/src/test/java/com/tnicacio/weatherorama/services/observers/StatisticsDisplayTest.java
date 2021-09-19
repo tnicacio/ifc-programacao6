@@ -2,7 +2,10 @@ package com.tnicacio.weatherorama.services.observers;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
 import com.tnicacio.weatherorama.services.subjects.WeatherDataManager;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -14,29 +17,27 @@ class StatisticsDisplayTest {
     private StatisticsDisplay statisticsDisplay;
     private WeatherDataManager weatherDataManager;
 
+    @BeforeEach
+    void setUp() {
+        weatherDataManager = new WeatherDataManager();
+        statisticsDisplay = new StatisticsDisplay(weatherDataManager);
+    }
+
     @Nested
     class Constructor {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-        }
-
         @Test
         void shouldSetWeatherDataManager() {
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
             assertThat(statisticsDisplay.getWeatherDataManager()).isSameAs(weatherDataManager);
         }
 
         @Test
         void shouldRegisterItselfAsAnObserver() {
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
             assertThat(weatherDataManager.getObservers()).hasSize(1).containsOnlyOnce(statisticsDisplay);
         }
 
         @Test
         void shouldInitializeWeatherStatistics() {
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
             assertThat(statisticsDisplay.getWeatherStatistics()).isNotNull();
         }
 
@@ -44,12 +45,6 @@ class StatisticsDisplayTest {
 
     @Nested
     class Update {
-
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
-        }
 
         @Test
         void shouldSetNewTemperatureSum() {
@@ -109,14 +104,12 @@ class StatisticsDisplayTest {
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         @BeforeEach
-        public void setUp() {
+        void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            weatherDataManager = new WeatherDataManager();
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
         }
 
         @AfterEach
-        public void tearDown() {
+        void tearDown() {
             System.setOut(standardOut);
         }
 
@@ -142,14 +135,8 @@ class StatisticsDisplayTest {
     @Nested
     class Subscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldRegisterItselfAsAnObserver() {
+        void shouldRegisterItselfAsAnObserver() {
             statisticsDisplay.subscribe();
             assertThat(weatherDataManager.getObservers()).containsOnlyOnce(statisticsDisplay);
         }
@@ -159,14 +146,8 @@ class StatisticsDisplayTest {
     @Nested
     class Unsubscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            statisticsDisplay = new StatisticsDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldUnregisterItselfAsAnObserver() {
+        void shouldUnregisterItselfAsAnObserver() {
             statisticsDisplay.unsubscribe();
             assertThat(weatherDataManager.getObservers()).doesNotContain(statisticsDisplay);
         }

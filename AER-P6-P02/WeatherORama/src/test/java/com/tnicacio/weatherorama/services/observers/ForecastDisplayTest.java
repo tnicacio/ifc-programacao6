@@ -17,23 +17,22 @@ class ForecastDisplayTest {
     private ForecastDisplay forecastDisplay;
     private WeatherDataManager weatherDataManager;
 
+    @BeforeEach
+    void setUp() {
+        weatherDataManager = new WeatherDataManager();
+        forecastDisplay = new ForecastDisplay(weatherDataManager);
+    }
+
     @Nested
     class Constructor {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-        }
-
         @Test
         void shouldSetWeatherDataManager() {
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
             assertThat(forecastDisplay.getWeatherDataManager()).isSameAs(weatherDataManager);
         }
 
         @Test
         void shouldRegisterItselfAsAnObserver() {
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
             assertThat(weatherDataManager.getObservers()).hasSize(1).containsOnlyOnce(forecastDisplay);
         }
 
@@ -41,12 +40,6 @@ class ForecastDisplayTest {
 
     @Nested
     class Update {
-
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
-        }
 
         @Test
         void shouldSetCurrentPressure() {
@@ -75,14 +68,12 @@ class ForecastDisplayTest {
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         @BeforeEach
-        public void setUp() {
+        void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            weatherDataManager = new WeatherDataManager();
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
         }
 
         @AfterEach
-        public void tearDown() {
+        void tearDown() {
             System.setOut(standardOut);
         }
 
@@ -138,14 +129,8 @@ class ForecastDisplayTest {
     @Nested
     class Subscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldRegisterItselfAsAnObserver() {
+        void shouldRegisterItselfAsAnObserver() {
             forecastDisplay.subscribe();
             assertThat(weatherDataManager.getObservers()).containsOnlyOnce(forecastDisplay);
         }
@@ -155,14 +140,8 @@ class ForecastDisplayTest {
     @Nested
     class Unsubscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            forecastDisplay = new ForecastDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldUnregisterItselfAsAnObserver() {
+        void shouldUnregisterItselfAsAnObserver() {
             forecastDisplay.unsubscribe();
             assertThat(weatherDataManager.getObservers()).doesNotContain(forecastDisplay);
         }

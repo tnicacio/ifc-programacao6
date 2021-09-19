@@ -17,23 +17,22 @@ class HeatIndexDisplayTest {
     private HeatIndexDisplay heatIndexDisplay;
     private WeatherDataManager weatherDataManager;
 
+    @BeforeEach
+    void setUp() {
+        weatherDataManager = new WeatherDataManager();
+        heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
+    }
+
     @Nested
     class Constructor {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-        }
-
         @Test
         void shouldSetWeatherDataManager() {
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
             assertThat(heatIndexDisplay.getWeatherDataManager()).isSameAs(weatherDataManager);
         }
 
         @Test
         void shouldRegisterItselfAsAnObserver() {
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
             assertThat(weatherDataManager.getObservers()).hasSize(1).containsOnlyOnce(heatIndexDisplay);
         }
 
@@ -42,18 +41,16 @@ class HeatIndexDisplayTest {
     @Nested
     class Update {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
+        @Test
+        void shouldSetNewHeatIndex() {
+            heatIndexDisplay.update(new WeatherData(36f, 65f, 1.00f));
+            assertThat(heatIndexDisplay.getHeatIndex()).isEqualTo(51.018593f);
         }
 
         @Test
-        void shouldSetNewHeatIndex() {
-            WeatherData data = new WeatherData(36f, 65f, 1.00f);
-            heatIndexDisplay.update(data);
-
-            assertThat(heatIndexDisplay.getHeatIndex()).isEqualTo(51.018593f);
+        void shouldReturnIndependentCoefficientWhenTemperatureAndHumidityAreEqualToZero() {
+            heatIndexDisplay.update(new WeatherData(0f, 0f, 1.00f));
+            assertThat(heatIndexDisplay.getHeatIndex()).isEqualTo(-8.784695f);
         }
 
     }
@@ -65,14 +62,12 @@ class HeatIndexDisplayTest {
         private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         @BeforeEach
-        public void setUp() {
+        void setUp() {
             System.setOut(new PrintStream(outputStreamCaptor));
-            weatherDataManager = new WeatherDataManager();
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
         }
 
         @AfterEach
-        public void tearDown() {
+        void tearDown() {
             System.setOut(standardOut);
         }
 
@@ -93,14 +88,8 @@ class HeatIndexDisplayTest {
     @Nested
     class Subscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldRegisterItselfAsAnObserver() {
+        void shouldRegisterItselfAsAnObserver() {
             heatIndexDisplay.subscribe();
             assertThat(weatherDataManager.getObservers()).containsOnlyOnce(heatIndexDisplay);
         }
@@ -110,14 +99,8 @@ class HeatIndexDisplayTest {
     @Nested
     class Unsubscribe {
 
-        @BeforeEach
-        public void setUp() {
-            weatherDataManager = new WeatherDataManager();
-            heatIndexDisplay = new HeatIndexDisplay(weatherDataManager);
-        }
-
         @Test
-        public void shouldUnregisterItselfAsAnObserver() {
+        void shouldUnregisterItselfAsAnObserver() {
             heatIndexDisplay.unsubscribe();
             assertThat(weatherDataManager.getObservers()).doesNotContain(heatIndexDisplay);
         }

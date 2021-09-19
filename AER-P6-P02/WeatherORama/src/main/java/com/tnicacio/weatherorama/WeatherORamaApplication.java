@@ -31,7 +31,7 @@ public class WeatherORamaApplication {
         displayElements.forEach(DisplayElement::display);
 
         System.out.println("*** New Measurements ***");
-        dataManager.setMeasurements(new WeatherData(36.5f, 70f, 0.9f));
+        dataManager.setMeasurements(new WeatherData(0f, 0f, 0f));
 
         displayElements.forEach(DisplayElement::display);
     }

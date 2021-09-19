@@ -1,5 +1,9 @@
 # Programação 6
-Exercícios realizados por mim para a disciplina de Programação 6, ministrada pelo professor Dr. Paulo César Rodaki, do curso Tecnólogo em Análise e Desenvolvimento de Sistemas (*TADS*) do Instituto Federal Catarinense Campus Blumenau/SC.
+Exercícios realizados para estudo de padrões de projetos.
+
+Grande parte das implementações serão exercícios realizados para a disciplina de Programação 6, ministrada pelo professor Dr. Paulo César Rodaki, do curso *Tecnólogo em Análise e Desenvolvimento de Sistemas* (TADS) do [Instituto Federal Catarinense Campus Blumenau/SC](http://blumenau.ifc.edu.br/).
+
+Contudo, em pastas *EXTRAS* serão colocados materiais relativos a mais estudos sobre os diversos padrões, em que planejo utilizar como base o livro *[Mergulho nos Padrões de Projetos](https://refactoring.guru/pt-br/design-patterns/book)*.
 
 Todas as implementações possuem testes cobrindo 100% de suas respectivas regras de negócio, e para os testes foram utilizadas as tecnologias abaixo:
 - [JUnit5](https://junit.org/junit5/), como framework base.

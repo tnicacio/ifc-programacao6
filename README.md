@@ -1,4 +1,4 @@
-# Programação 6
+# Padrões de Projetos em Java
 Exercícios realizados para estudo de padrões de projetos.
 
 Grande parte das implementações serão exercícios realizados para a disciplina de Programação 6, ministrada pelo professor Dr. Paulo César Rodaki, do curso *Tecnólogo em Análise e Desenvolvimento de Sistemas* (TADS) do [Instituto Federal Catarinense Campus Blumenau/SC](http://blumenau.ifc.edu.br/).
@@ -9,8 +9,6 @@ Todas as implementações possuem testes cobrindo 100% de suas respectivas regra
 - [JUnit5](https://junit.org/junit5/), como framework base.
 - [AssertJ](https://assertj.github.io/doc/), como facilitador para testes - especialmente nos que possuem coleções e saídas com strings.
 - [Mockito](https://site.mockito.org/), muito útil quando se é necessário testar se alguma variável foi persistida ou se determinados métodos foram chamados, por exemplo.
-
-# Padrões de Projeto em Java
 
 ## [# STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01)
 Implementações relativas ao padrão de projeto *Strategy*

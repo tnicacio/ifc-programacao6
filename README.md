@@ -8,7 +8,7 @@ Todas as implementações possuem testes cobrindo 100% de suas respectivas regra
 
 # Padrões de Projeto em Java
 
-## [#STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01)
+## [# STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01)
 Implementações relativas ao padrão de projeto *Strategy*
 
 ### :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/DuckTales)
@@ -17,7 +17,7 @@ Implementações relativas ao padrão de projeto *Strategy*
 
 ### :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/RentABoat)
 
-## [#OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P02)
+## [# OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P02)
 Implementações relativas ao padrão de projeto *Observer*
 
 ### ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P02/WeatherORama)

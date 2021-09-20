@@ -10,16 +10,16 @@ Todas as implementações possuem testes cobrindo 100% de suas respectivas regra
 - [AssertJ](https://assertj.github.io/doc/), como facilitador para testes - especialmente nos que possuem coleções e saídas com strings.
 - [Mockito](https://site.mockito.org/), muito útil quando se é necessário testar se alguma variável foi persistida ou se determinados métodos foram chamados, por exemplo.
 
-## [# STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01)
+## [# STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy)
 Implementações relativas ao padrão de projeto *Strategy*
 
-### :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/DuckTales)
+### :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/DuckTales)
 
-### :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/Prefeitura)
+### :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/Prefeitura)
 
-### :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P01/RentABoat)
+### :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/RentABoat)
 
-## [# OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P02)
+## [# OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/observer)
 Implementações relativas ao padrão de projeto *Observer*
 
-### ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/AER-P6-P02/WeatherORama)
+### ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/observer/ifc/WeatherORama)

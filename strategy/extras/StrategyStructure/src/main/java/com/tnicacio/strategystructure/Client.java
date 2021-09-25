@@ -1,10 +1,10 @@
 package com.tnicacio.strategystructure;
 
 
-import com.tnicacio.strategystructure.entities.Context;
-import com.tnicacio.strategystructure.services.FirstConcreteStrategy;
-import com.tnicacio.strategystructure.services.SecondConcreteStrategy;
-import com.tnicacio.strategystructure.services.Strategy;
+import com.tnicacio.strategystructure.context.Context;
+import com.tnicacio.strategystructure.strategies.FirstConcreteStrategy;
+import com.tnicacio.strategystructure.strategies.SecondConcreteStrategy;
+import com.tnicacio.strategystructure.strategies.Strategy;
 
 /**
  * The Client creates a specific strategy object and passes it to

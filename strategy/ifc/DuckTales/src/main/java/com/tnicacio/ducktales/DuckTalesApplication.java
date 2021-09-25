@@ -1,10 +1,10 @@
 package com.tnicacio.ducktales;
 
-import com.tnicacio.ducktales.entities.duck.Duck;
-import com.tnicacio.ducktales.entities.duck.impl.DecoyDuck;
-import com.tnicacio.ducktales.entities.duck.impl.MallardDuck;
-import com.tnicacio.ducktales.entities.duck.impl.RedheadDuck;
-import com.tnicacio.ducktales.entities.duck.impl.RubberDuck;
+import com.tnicacio.ducktales.duck.Duck;
+import com.tnicacio.ducktales.duck.impl.DecoyDuck;
+import com.tnicacio.ducktales.duck.impl.MallardDuck;
+import com.tnicacio.ducktales.duck.impl.RedheadDuck;
+import com.tnicacio.ducktales.duck.impl.RubberDuck;
 
 import java.util.List;
 

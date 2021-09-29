@@ -1,17 +1,17 @@
-package com.tnicacio.starbuzzcoffee.beverage.impl;
+package com.tnicacio.starbuzzcoffee.beverage;
 
 import com.tnicacio.starbuzzcoffee.beverage.Beverage;
 
-public class DarkRoast implements Beverage {
+public class Decaf implements Beverage {
 
     @Override
     public String getDescription() {
-        return "Dark Roast";
+        return "Decaf";
     }
 
     @Override
     public double cost() {
-        return .99;
+        return 1.05;
     }
 
 }

@@ -1,17 +1,17 @@
-package com.tnicacio.starbuzzcoffee.beverage.impl;
+package com.tnicacio.starbuzzcoffee.test.factory;
 
 import com.tnicacio.starbuzzcoffee.beverage.Beverage;
 
-public class Espresso implements Beverage {
+public class BeverageDefaultImpl implements Beverage {
 
     @Override
     public String getDescription() {
-        return "Expresso";
+        return "Default Beverage";
     }
 
     @Override
     public double cost() {
-        return 1.99;
+        return 1.0;
     }
 
 }

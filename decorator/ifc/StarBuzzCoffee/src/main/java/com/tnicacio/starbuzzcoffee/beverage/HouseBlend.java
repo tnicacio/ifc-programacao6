@@ -1,4 +1,4 @@
-package com.tnicacio.starbuzzcoffee.beverage.impl;
+package com.tnicacio.starbuzzcoffee.beverage;
 
 import com.tnicacio.starbuzzcoffee.beverage.Beverage;
 

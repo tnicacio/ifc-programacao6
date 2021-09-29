@@ -1,13 +1,12 @@
 package com.tnicacio.starbuzzcoffee;
 
 import com.tnicacio.starbuzzcoffee.beverage.Beverage;
-import com.tnicacio.starbuzzcoffee.beverage.decorators.condiments.Milk;
 import com.tnicacio.starbuzzcoffee.beverage.decorators.condiments.Mocha;
 import com.tnicacio.starbuzzcoffee.beverage.decorators.condiments.Soy;
 import com.tnicacio.starbuzzcoffee.beverage.decorators.condiments.Whip;
-import com.tnicacio.starbuzzcoffee.beverage.impl.DarkRoast;
-import com.tnicacio.starbuzzcoffee.beverage.impl.Espresso;
-import com.tnicacio.starbuzzcoffee.beverage.impl.HouseBlend;
+import com.tnicacio.starbuzzcoffee.beverage.DarkRoast;
+import com.tnicacio.starbuzzcoffee.beverage.Espresso;
+import com.tnicacio.starbuzzcoffee.beverage.HouseBlend;
 
 public class StarBuzzCoffeeApplication {
 

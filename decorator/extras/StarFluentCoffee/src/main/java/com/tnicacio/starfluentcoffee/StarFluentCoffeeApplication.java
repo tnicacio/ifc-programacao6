@@ -12,9 +12,9 @@ public class StarFluentCoffeeApplication {
 
         Beverage order = Order.beverage(new DarkRoast())
                 .size(Size.BIG)
-                .add(Condiment.MILK)
-                .add(Condiment.MILK)
-                .add(Condiment.MOCHA)
+//                .add(Condiment.MILK)
+//                .add(Condiment.MILK)
+//                .add(Condiment.MOCHA)
                 .checkout();
 
         System.out.println("Order: " + order.getDescription()

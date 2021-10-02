@@ -1,11 +1,17 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
+import com.tnicacio.starfluentcoffee.cost.CostStrategy;
+import com.tnicacio.starfluentcoffee.cost.HouseBlendCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
 
 public class HouseBlend implements Beverage {
 
-    private static final Size DEFAULT_SIZE = Size.MEDIUM;
+    private final CostStrategy costStrategy;
     private Size size;
+
+    public HouseBlend() {
+        costStrategy = new HouseBlendCost();
+    }
 
     @Override
     public String getDescription() {
@@ -14,18 +20,7 @@ public class HouseBlend implements Beverage {
 
     @Override
     public double cost() {
-        if (size == Size.MEDIUM) {
-            return .89;
-        }
-        if (size == Size.SMALL) {
-            return .79;
-        }
-        if (size == Size.BIG) {
-            return .99;
-        }
-
-        this.size = DEFAULT_SIZE;
-        return cost();
+        return costStrategy.cost(this);
     }
 
     @Override

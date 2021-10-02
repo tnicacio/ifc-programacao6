@@ -6,7 +6,7 @@ import com.tnicacio.starfluentcoffee.enums.Size;
 
 public class Decaf implements Beverage {
 
-    private final CostStrategy costStrategy;
+    private CostStrategy costStrategy;
     private Size size;
 
     public Decaf() {
@@ -31,6 +31,10 @@ public class Decaf implements Beverage {
     @Override
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    public void setCostStrategy(CostStrategy costStrategy) {
+        this.costStrategy = costStrategy;
     }
 
 }

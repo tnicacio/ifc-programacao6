@@ -1,24 +1,25 @@
 package com.tnicacio.starfluentcoffee.cost;
 
 import com.tnicacio.starfluentcoffee.beverage.Beverage;
+import com.tnicacio.starfluentcoffee.enums.Size;
+import com.tnicacio.starfluentcoffee.util.EnumMapValidatorUtil;
 
+import java.util.EnumMap;
 import java.util.Objects;
 
 public class EspressoCost implements CostStrategy {
 
     @Override
     public double cost(Beverage beverage) {
-        Objects.requireNonNull(beverage.getSize(), "Beverage size must be defined");
+        Size size = Objects.requireNonNull(beverage.getSize(), "Beverage size must be defined");
 
-        switch (beverage.getSize()) {
-            case SMALL:
-                return 1.89;
-            case MEDIUM:
-                return 1.99;
-            case BIG:
-                return 2.09;
-        }
-        return 0.0;
+        EnumMap<Size, Double> map = new EnumMap<>(Size.class);
+        map.put(Size.SMALL, 1.89);
+        map.put(Size.MEDIUM, 1.99);
+        map.put(Size.BIG, 2.09);
+
+        EnumMapValidatorUtil.validateKeys(Size.class, map, "Sizes map");
+        return map.get(size);
     }
 
 }

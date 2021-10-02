@@ -1,9 +1,14 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
+import com.tnicacio.starfluentcoffee.cost.CostStrategy;
+import com.tnicacio.starfluentcoffee.cost.HouseBlendCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,27 +36,28 @@ class HouseBlendTest {
     class Cost {
 
         @Test
-        void shouldReturn89centsWhenSizeMedium() {
-            houseBlend.setSize(Size.MEDIUM);
-            assertThat(houseBlend.cost()).isEqualTo(0.89);
-        }
-
-        @Test
-        void shouldReturn79centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyMethod() {
+            CostStrategy costStrategy = Mockito.mock(HouseBlendCost.class);
+            HouseBlend houseBlend = Mockito.spy(HouseBlend.class);
             houseBlend.setSize(Size.SMALL);
-            assertThat(houseBlend.cost()).isEqualTo(.79);
+            houseBlend.setCostStrategy(costStrategy);
+            InOrder inOrder = Mockito.inOrder(houseBlend, costStrategy);
+
+            houseBlend.cost();
+
+            inOrder.verify(houseBlend).cost();
+            inOrder.verify(costStrategy).cost(houseBlend);
+            inOrder.verifyNoMoreInteractions();
         }
 
         @Test
-        void shouldReturn99centsWhenSizeBig() {
-            houseBlend.setSize(Size.BIG);
-            assertThat(houseBlend.cost()).isEqualTo(.99);
-        }
+        void shouldReturnCostStrategyCost() {
+            CostStrategy costStrategy = Mockito.mock(HouseBlendCost.class);
+            HouseBlend houseBlend = Mockito.spy(HouseBlend.class);
+            houseBlend.setSize(Size.SMALL);
+            houseBlend.setCostStrategy(costStrategy);
 
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            houseBlend.setSize(null);
-            assertThat(houseBlend.cost()).isEqualTo(.89);
+            Assertions.assertThat(houseBlend.cost()).isEqualTo(costStrategy.cost(houseBlend));
         }
 
     }

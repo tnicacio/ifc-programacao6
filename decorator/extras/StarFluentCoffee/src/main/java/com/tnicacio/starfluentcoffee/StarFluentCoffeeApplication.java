@@ -8,13 +8,13 @@ import com.tnicacio.starfluentcoffee.order.Order;
 
 public class StarFluentCoffeeApplication {
 
-    public static void main(String... args){
+    public static void main(String... args) {
 
         Beverage order = Order.beverage(new DarkRoast())
                 .size(Size.BIG)
-//                .add(Condiment.MILK)
-//                .add(Condiment.MILK)
-//                .add(Condiment.MOCHA)
+                .add(Condiment.MILK)
+                .add(Condiment.MILK)
+                .add(Condiment.MOCHA)
                 .checkout();
 
         System.out.println("Order: " + order.getDescription()

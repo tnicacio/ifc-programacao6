@@ -10,9 +10,13 @@ public abstract class CondimentDecorator implements Beverage {
 
     private CostStrategy costStrategy;
 
+    @Deprecated
+    public CondimentDecorator() {
+    }
+
     public CondimentDecorator(Beverage beverage, CostStrategy costStrategy) {
         this.beverage = beverage;
-        this.costStrategy = costStrategy;
+        setCostStrategy(costStrategy);
     }
 
     @Override

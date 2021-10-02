@@ -1,9 +1,14 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
+import com.tnicacio.starfluentcoffee.cost.CostStrategy;
+import com.tnicacio.starfluentcoffee.cost.EspressoCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,27 +36,28 @@ class EspressoTest {
     class Cost {
 
         @Test
-        void shouldReturn199centsWhenSizeMedium() {
-            espresso.setSize(Size.MEDIUM);
-            assertThat(espresso.cost()).isEqualTo(1.99);
-        }
-
-        @Test
-        void shouldReturn189centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyMethod() {
+            CostStrategy costStrategy = Mockito.mock(EspressoCost.class);
+            Espresso espresso = Mockito.spy(Espresso.class);
             espresso.setSize(Size.SMALL);
-            assertThat(espresso.cost()).isEqualTo(1.89);
+            espresso.setCostStrategy(costStrategy);
+            InOrder inOrder = Mockito.inOrder(espresso, costStrategy);
+
+            espresso.cost();
+
+            inOrder.verify(espresso).cost();
+            inOrder.verify(costStrategy).cost(espresso);
+            inOrder.verifyNoMoreInteractions();
         }
 
         @Test
-        void shouldReturn209centsWhenSizeBig() {
-            espresso.setSize(Size.BIG);
-            assertThat(espresso.cost()).isEqualTo(2.09);
-        }
+        void shouldReturnCostStrategyCost() {
+            CostStrategy costStrategy = Mockito.mock(EspressoCost.class);
+            Espresso espresso = Mockito.spy(Espresso.class);
+            espresso.setSize(Size.SMALL);
+            espresso.setCostStrategy(costStrategy);
 
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            espresso.setSize(null);
-            assertThat(espresso.cost()).isEqualTo(1.99);
+            Assertions.assertThat(espresso.cost()).isEqualTo(costStrategy.cost(espresso));
         }
 
     }

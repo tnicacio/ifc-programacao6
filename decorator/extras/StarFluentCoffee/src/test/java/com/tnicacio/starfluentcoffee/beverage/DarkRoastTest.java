@@ -1,9 +1,14 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
+import com.tnicacio.starfluentcoffee.cost.CostStrategy;
+import com.tnicacio.starfluentcoffee.cost.DarkRoastCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,28 +36,30 @@ class DarkRoastTest {
     class Cost {
 
         @Test
-        void shouldReturn99centsWhenSizeMedium() {
-            darkRoast.setSize(Size.MEDIUM);
-            assertThat(darkRoast.cost()).isEqualTo(.99);
-        }
-
-        @Test
-        void shouldReturn89centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyMethod() {
+            CostStrategy costStrategy = Mockito.mock(DarkRoastCost.class);
+            DarkRoast darkRoast = Mockito.spy(DarkRoast.class);
             darkRoast.setSize(Size.SMALL);
-            assertThat(darkRoast.cost()).isEqualTo(.89);
+            darkRoast.setCostStrategy(costStrategy);
+            InOrder inOrder = Mockito.inOrder(darkRoast, costStrategy);
+
+            darkRoast.cost();
+
+            inOrder.verify(darkRoast).cost();
+            inOrder.verify(costStrategy).cost(darkRoast);
+            inOrder.verifyNoMoreInteractions();
         }
 
         @Test
-        void shouldReturn109centsWhenSizeBig() {
-            darkRoast.setSize(Size.BIG);
-            assertThat(darkRoast.cost()).isEqualTo(1.09);
+        void shouldReturnCostStrategyCost() {
+            CostStrategy costStrategy = Mockito.mock(DarkRoastCost.class);
+            DarkRoast darkRoast = Mockito.spy(DarkRoast.class);
+            darkRoast.setSize(Size.SMALL);
+            darkRoast.setCostStrategy(costStrategy);
+
+            Assertions.assertThat(darkRoast.cost()).isEqualTo(costStrategy.cost(darkRoast));
         }
 
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            darkRoast.setSize(null);
-            assertThat(darkRoast.cost()).isEqualTo(.99);
-        }
     }
 
     @Nested

@@ -14,7 +14,7 @@ public interface Order {
     }
 
     interface SizeOrder {
-        CondimentsOrder size(Size size);
+        CheckoutOrder size(Size size);
     }
 
     interface CondimentsOrder {

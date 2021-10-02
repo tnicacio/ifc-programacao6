@@ -7,6 +7,8 @@ import com.tnicacio.starfluentcoffee.enums.Size;
 import com.tnicacio.starfluentcoffee.mapper.CondimentToCondimentDecoratorWithBeverage;
 import com.tnicacio.starfluentcoffee.mapper.Mapper;
 
+import java.util.Objects;
+
 public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Order.CheckoutOrder {
 
     private final Mapper<Condiment, CondimentDecorator, Beverage> condimentMapper = new CondimentToCondimentDecoratorWithBeverage();
@@ -18,16 +20,15 @@ public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Orde
     }
 
     @Override
-    public Order.CondimentsOrder size(Size size) {
+    public Order.CheckoutOrder size(Size size) {
+        Objects.requireNonNull(size, "size is required");
         beverage.setSize(size);
         return this;
     }
 
     @Override
     public Order.CheckoutOrder add(Condiment condiment) {
-        if (condiment == null) {
-            return this;
-        }
+        Objects.requireNonNull(condiment, "condiment must not be null");
         beverage = condimentMapper.map(condiment, beverage);
         return this;
     }

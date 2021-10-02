@@ -9,7 +9,7 @@ import java.util.Objects;
 public interface Order {
 
     static SizeOrder beverage(Beverage beverage) {
-        Objects.requireNonNull(beverage, "Beverage is required to the order");
+        Objects.requireNonNull(beverage, "Beverage is required");
         return new OrderFluent(beverage);
     }
 

@@ -21,14 +21,14 @@ public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Orde
 
     @Override
     public Order.CheckoutOrder size(Size size) {
-        Objects.requireNonNull(size, "size is required");
+        Objects.requireNonNull(size, "Size is required");
         beverage.setSize(size);
         return this;
     }
 
     @Override
     public Order.CheckoutOrder add(Condiment condiment) {
-        Objects.requireNonNull(condiment, "condiment must not be null");
+        Objects.requireNonNull(condiment, "Condiment must not be null");
         beverage = condimentMapper.map(condiment, beverage);
         return this;
     }

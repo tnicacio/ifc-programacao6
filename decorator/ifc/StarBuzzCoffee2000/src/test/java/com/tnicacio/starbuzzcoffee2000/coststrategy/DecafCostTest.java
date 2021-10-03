@@ -1,7 +1,7 @@
 package com.tnicacio.starbuzzcoffee2000.coststrategy;
 
 import com.tnicacio.starbuzzcoffee2000.beverage.Beverage;
-import com.tnicacio.starbuzzcoffee2000.beverage.DarkRoast;
+import com.tnicacio.starbuzzcoffee2000.beverage.Decaf;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,40 +9,40 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-class DarkRoastCostTest {
+class DecafCostTest {
 
-    private DarkRoastCost darkRoastCost;
+    private DecafCost decafCost;
     private Beverage beverage;
 
     @BeforeEach
     void setUp() {
-        darkRoastCost = new DarkRoastCost();
-        beverage = new DarkRoast();
+        decafCost = new DecafCost();
+        beverage = new Decaf();
     }
 
     @Test
-    void shouldReturn99centsWhenSizeMedium() {
+    void shouldReturn105centsWhenSizeMedium() {
         beverage.setSize(Size.MEDIUM);
-        assertThat(darkRoastCost.cost(beverage)).isEqualTo(.99);
+        assertThat(decafCost.cost(beverage)).isEqualTo(1.05);
     }
 
     @Test
-    void shouldReturn89centsWhenSizeSmall() {
+    void shouldReturn95centsWhenSizeSmall() {
         beverage.setSize(Size.SMALL);
-        assertThat(darkRoastCost.cost(beverage)).isEqualTo(.89);
+        assertThat(decafCost.cost(beverage)).isEqualTo(.95);
     }
 
     @Test
-    void shouldReturn109centsWhenSizeBig() {
+    void shouldReturn115centsWhenSizeBig() {
         beverage.setSize(Size.BIG);
-        assertThat(darkRoastCost.cost(beverage)).isEqualTo(1.09);
+        assertThat(decafCost.cost(beverage)).isEqualTo(1.15);
     }
 
     @Test
     void shouldThrowNullPointerExceptionWhenBeverageSizeIsNull() {
         beverage.setSize(null);
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> darkRoastCost.cost(beverage))
+                .isThrownBy(() -> decafCost.cost(beverage))
                 .withMessage("Beverage size must be defined beforehand");
 
     }

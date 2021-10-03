@@ -1,5 +1,7 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.DecafCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -17,7 +19,7 @@ class DecafTest {
     }
 
     @Nested
-    class Description {
+    class GetDescription {
 
         @Test
         void shouldReturnDescriptionEqualToDecaf() {
@@ -31,28 +33,13 @@ class DecafTest {
     class Cost {
 
         @Test
-        void shouldReturn105centsWhenSizeMedium() {
-            decaf.setSize(Size.MEDIUM);
-            assertThat(decaf.cost()).isEqualTo(1.05);
-        }
-
-        @Test
-        void shouldReturn95centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyDarkRoastCostMethod() {
             decaf.setSize(Size.SMALL);
-            assertThat(decaf.cost()).isEqualTo(.95);
+            CostStrategy costStrategy = new DecafCost();
+
+            assertThat(decaf.cost()).isEqualTo(costStrategy.cost(decaf));
         }
 
-        @Test
-        void shouldReturn115centsWhenSizeBig() {
-            decaf.setSize(Size.BIG);
-            assertThat(decaf.cost()).isEqualTo(1.15);
-        }
-
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            decaf.setSize(null);
-            assertThat(decaf.cost()).isEqualTo(1.05);
-        }
     }
 
     @Nested

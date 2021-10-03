@@ -2,7 +2,7 @@ package com.tnicacio.starbuzzcoffee2000;
 
 import com.tnicacio.starbuzzcoffee2000.beverage.Beverage;
 import com.tnicacio.starbuzzcoffee2000.beverage.DarkRoast;
-import com.tnicacio.starbuzzcoffee2000.beverage.condiments.Milk;
+import com.tnicacio.starbuzzcoffee2000.condimentdecorator.Milk;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
 public class StarBuzzCoffee2000Application {

@@ -1,12 +1,11 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.DarkRoastCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +19,7 @@ class DarkRoastTest {
     }
 
     @Nested
-    class Description {
+    class GetDescription {
 
         @Test
         void shouldReturnDescriptionEqualToDarkRoast() {
@@ -34,28 +33,13 @@ class DarkRoastTest {
     class Cost {
 
         @Test
-        void shouldReturn99centsWhenSizeMedium() {
-            darkRoast.setSize(Size.MEDIUM);
-            assertThat(darkRoast.cost()).isEqualTo(.99);
-        }
-
-        @Test
-        void shouldReturn89centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyDarkRoastCostMethod() {
             darkRoast.setSize(Size.SMALL);
-            assertThat(darkRoast.cost()).isEqualTo(.89);
+            CostStrategy costStrategy = new DarkRoastCost();
+
+            assertThat(darkRoast.cost()).isEqualTo(costStrategy.cost(darkRoast));
         }
 
-        @Test
-        void shouldReturn109centsWhenSizeBig() {
-            darkRoast.setSize(Size.BIG);
-            assertThat(darkRoast.cost()).isEqualTo(1.09);
-        }
-
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            darkRoast.setSize(null);
-            assertThat(darkRoast.cost()).isEqualTo(.99);
-        }
     }
 
     @Nested

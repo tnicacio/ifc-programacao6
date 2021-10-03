@@ -1,4 +1,4 @@
-package com.tnicacio.starbuzzcoffee2000.beverage.coststrategy;
+package com.tnicacio.starbuzzcoffee2000.coststrategy;
 
 import com.tnicacio.starbuzzcoffee2000.beverage.Beverage;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
@@ -19,7 +19,7 @@ public class SoyCost implements CostStrategy {
         if (size == Size.BIG) {
             return .20 + beverage.cost();
         }
-        throw new IllegalArgumentException("Invalid size");
+        throw new IllegalArgumentException("Invalid beverage size");
     }
 
 }

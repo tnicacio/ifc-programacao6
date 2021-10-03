@@ -1,11 +1,17 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.DarkRoastCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
 public class DarkRoast implements Beverage {
 
-    private final Size DEFAULT_SIZE = Size.MEDIUM;
+    private CostStrategy costStrategy;
     private Size size;
+
+    public DarkRoast() {
+        costStrategy = new DarkRoastCost();
+    }
 
     @Override
     public String getDescription() {
@@ -14,27 +20,17 @@ public class DarkRoast implements Beverage {
 
     @Override
     public double cost() {
-        if (size == Size.MEDIUM) {
-            return .99;
-        }
-        if (size == Size.SMALL) {
-            return .89;
-        }
-        if (size == Size.BIG) {
-            return 1.09;
-        }
-        this.size = DEFAULT_SIZE;
-        return cost();
-    }
-
-    @Override
-    public void setSize(Size size) {
-        this.size = size;
+        return costStrategy.cost(this);
     }
 
     @Override
     public Size getSize() {
         return size;
+    }
+
+    @Override
+    public void setSize(Size size) {
+        this.size = size;
     }
 
 }

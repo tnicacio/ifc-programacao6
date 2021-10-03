@@ -1,6 +1,6 @@
-# Star Buzz Coffe (with ~~Lasers~~ Sizes)
+# Star Buzz Coffee (with ~~Lasers~~ Sizes)
 
-Implementação do exemplo da Estação Meteorológica do livro *Head First: Design Patterns - A Brain-Friendly Guide* de Freeman, E. e Robson, E.
+Implementação do Star Buzz Coffee do livro *Head First: Design Patterns - A Brain-Friendly Guide* de Freeman, E. e Robson, E.
 Agora com a funcionalidade de escolha de tamanho da bebida, conforme descrição abaixo:
 
 “StarBuzz introduziu diferentes tamanhos de bebida em seu cardápio. Agora é possível pedir

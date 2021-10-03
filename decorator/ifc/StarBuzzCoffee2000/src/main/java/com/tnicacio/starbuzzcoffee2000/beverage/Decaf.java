@@ -1,11 +1,17 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.DecafCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
 public class Decaf implements Beverage {
 
-    private final Size DEFAULT_SIZE = Size.MEDIUM;
+    private CostStrategy costStrategy;
     private Size size;
+
+    public Decaf() {
+        costStrategy = new DecafCost();
+    }
 
     @Override
     public String getDescription() {
@@ -14,28 +20,17 @@ public class Decaf implements Beverage {
 
     @Override
     public double cost() {
-        if (size == Size.MEDIUM) {
-            return 1.05;
-        }
-        if (size == Size.SMALL) {
-            return .95;
-        }
-        if (size == Size.BIG) {
-            return 1.15;
-        }
-
-        this.size = DEFAULT_SIZE;
-        return cost();
-    }
-
-    @Override
-    public void setSize(Size size) {
-        this.size = size;
+        return costStrategy.cost(this);
     }
 
     @Override
     public Size getSize() {
         return size;
+    }
+
+    @Override
+    public void setSize(Size size) {
+        this.size = size;
     }
 
 }

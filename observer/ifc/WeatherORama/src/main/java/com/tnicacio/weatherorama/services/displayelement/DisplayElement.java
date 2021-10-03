@@ -1,4 +1,4 @@
-package com.tnicacio.weatherorama.services.display;
+package com.tnicacio.weatherorama.services.displayelement;
 
 public interface DisplayElement {
 

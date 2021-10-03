@@ -1,4 +1,4 @@
-package com.tnicacio.weatherorama.services.observers;
+package com.tnicacio.weatherorama.services.observer;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
 

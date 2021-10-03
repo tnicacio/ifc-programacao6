@@ -1,13 +1,13 @@
-package com.tnicacio.weatherorama.services.observers;
+package com.tnicacio.weatherorama.services.observer;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
-import com.tnicacio.weatherorama.services.display.DisplayElement;
-import com.tnicacio.weatherorama.services.subjects.WeatherDataManager;
-import com.tnicacio.weatherorama.services.subscribe.Subscriber;
+import com.tnicacio.weatherorama.services.displayelement.DisplayElement;
+import com.tnicacio.weatherorama.services.subject.WeatherDataManager;
+import com.tnicacio.weatherorama.services.subscriber.Subscriber;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement, Subscriber {
 
-    private WeatherDataManager weatherDataManager;
+    private final WeatherDataManager weatherDataManager;
     private WeatherData weatherData;
 
     public CurrentConditionsDisplay(WeatherDataManager weatherDataManager) {

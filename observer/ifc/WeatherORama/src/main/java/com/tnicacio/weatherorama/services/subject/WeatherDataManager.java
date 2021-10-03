@@ -1,14 +1,14 @@
-package com.tnicacio.weatherorama.services.subjects;
+package com.tnicacio.weatherorama.services.subject;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
-import com.tnicacio.weatherorama.services.observers.Observer;
+import com.tnicacio.weatherorama.services.observer.Observer;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class WeatherDataManager implements Subject {
 
-    private Set<Observer> observers;
+    private final Set<Observer> observers;
     private WeatherData weatherData;
 
     public WeatherDataManager() {

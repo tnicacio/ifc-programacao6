@@ -1,6 +1,6 @@
-package com.tnicacio.weatherorama.services.subjects;
+package com.tnicacio.weatherorama.services.subject;
 
-import com.tnicacio.weatherorama.services.observers.Observer;
+import com.tnicacio.weatherorama.services.observer.Observer;
 
 public interface Subject {
 

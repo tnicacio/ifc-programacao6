@@ -1,4 +1,4 @@
-package com.tnicacio.weatherorama.services.subscribe;
+package com.tnicacio.weatherorama.services.subscriber;
 
 public interface Subscriber {
 

@@ -1,12 +1,12 @@
 package com.tnicacio.weatherorama;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
-import com.tnicacio.weatherorama.services.display.DisplayElement;
-import com.tnicacio.weatherorama.services.observers.CurrentConditionsDisplay;
-import com.tnicacio.weatherorama.services.observers.ForecastDisplay;
-import com.tnicacio.weatherorama.services.observers.HeatIndexDisplay;
-import com.tnicacio.weatherorama.services.observers.StatisticsDisplay;
-import com.tnicacio.weatherorama.services.subjects.WeatherDataManager;
+import com.tnicacio.weatherorama.services.displayelement.DisplayElement;
+import com.tnicacio.weatherorama.services.observer.CurrentConditionsDisplay;
+import com.tnicacio.weatherorama.services.observer.ForecastDisplay;
+import com.tnicacio.weatherorama.services.observer.HeatIndexDisplay;
+import com.tnicacio.weatherorama.services.observer.StatisticsDisplay;
+import com.tnicacio.weatherorama.services.subject.WeatherDataManager;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ public class WeatherORamaApplication {
     public static void main(String... args) {
         WeatherDataManager dataManager = new WeatherDataManager();
 
-        CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(dataManager);
-        StatisticsDisplay statisticsDisplay = new StatisticsDisplay(dataManager);
-        ForecastDisplay forecastDisplay = new ForecastDisplay(dataManager);
-        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(dataManager);
+        DisplayElement currentConditionsDisplay = new CurrentConditionsDisplay(dataManager);
+        DisplayElement statisticsDisplay = new StatisticsDisplay(dataManager);
+        DisplayElement forecastDisplay = new ForecastDisplay(dataManager);
+        DisplayElement heatIndexDisplay = new HeatIndexDisplay(dataManager);
 
         dataManager.setMeasurements(new WeatherData(36f, 65f, 1f));
 
@@ -27,11 +27,6 @@ public class WeatherORamaApplication {
                 statisticsDisplay,
                 forecastDisplay,
                 heatIndexDisplay);
-
-        displayElements.forEach(DisplayElement::display);
-
-        System.out.println("*** New Measurements ***");
-        dataManager.setMeasurements(new WeatherData(0f, 0f, 0f));
 
         displayElements.forEach(DisplayElement::display);
     }

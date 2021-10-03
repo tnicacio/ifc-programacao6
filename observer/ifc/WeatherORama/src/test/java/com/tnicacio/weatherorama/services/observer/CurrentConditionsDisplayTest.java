@@ -1,7 +1,7 @@
-package com.tnicacio.weatherorama.services.observers;
+package com.tnicacio.weatherorama.services.observer;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
-import com.tnicacio.weatherorama.services.subjects.WeatherDataManager;
+import com.tnicacio.weatherorama.services.subject.WeatherDataManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;

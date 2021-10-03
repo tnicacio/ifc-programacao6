@@ -1,15 +1,15 @@
-package com.tnicacio.weatherorama.services.observers;
+package com.tnicacio.weatherorama.services.observer;
 
 import com.tnicacio.weatherorama.entities.WeatherData;
 import com.tnicacio.weatherorama.entities.WeatherStatistics;
-import com.tnicacio.weatherorama.services.display.DisplayElement;
-import com.tnicacio.weatherorama.services.subjects.Subject;
-import com.tnicacio.weatherorama.services.subscribe.Subscriber;
+import com.tnicacio.weatherorama.services.displayelement.DisplayElement;
+import com.tnicacio.weatherorama.services.subject.Subject;
+import com.tnicacio.weatherorama.services.subscriber.Subscriber;
 
 public class StatisticsDisplay implements Observer, DisplayElement, Subscriber {
 
-    private Subject weatherDataManager;
-    private WeatherStatistics weatherStatistics;
+    private final Subject weatherDataManager;
+    private final WeatherStatistics weatherStatistics;
 
     public StatisticsDisplay(Subject weatherDataManager) {
         this.weatherDataManager = weatherDataManager;

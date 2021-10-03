@@ -5,7 +5,7 @@ coloque-os em classes separadas, e faça os objetos deles intercambiáveis ([SHE
 
 - [Estrutura](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#estrutura)
 - [Aplicabilidade](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#aplicabilidade)
-- [Algumas implementações](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#algumas-implementacoes)
+- [Algumas implementações](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#algumas-implementações)
 
 
 ## Estrutura

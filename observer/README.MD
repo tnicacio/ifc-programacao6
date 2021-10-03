@@ -1,52 +1,55 @@
 # #OBSERVER
-Observer is a behavioral design pattern that lets you define a
-subscription mechanism to notify multiple objects about any
-events that happen to the object they’re observing ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
 
-- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#structure)
-- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#applicability)
-- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#some-implementations)
+>Também conhecido como: Observador, Assinante do evento, Event-Subscriber, Escutador, Listener
 
-## Structure
+O Observer é um padrão de projeto comportamental que permite que você defina um mecanismo de assinatura para
+notificar múltiplos objetos sobre quaisquer eventos que aconteçam com o objeto que eles estão observando ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
+
+- [Estrutura](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#estrutura)
+- [Aplicabilidade](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#aplicabilidade)
+- [Algumas implementações](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#algumas-implementações)
+
+## Estrutura
 ![observer-structure](https://user-images.githubusercontent.com/50798315/135774059-4b3814b8-a090-41a2-8d4f-1f6bfc0d0bfe.png)
 
-1. The **Publisher** issues events of interest to other objects. These events occur when the publisher changes its state or executes
-some behaviors. Publishers contain a subscription infrastructure that lets new subscribers join and current subscribers leave the list.
+1. A **Publisher** manda eventos de interesse para outros objetos. Esses eventos ocorrem quando a publicadora muda seu estado
+ou executa algum comportamento. As publicadoras contêm uma infraestrutura de inscrição que permite novos assinantes 
+se juntarem aos atuais assinantes, ou deixarem a lista.
 
-2. When a new event happens, the publisher goes over the subscription list and calls the notification method declared in the
-subscriber interface on each subscriber object.
+2. Quando um novo evento acontece, a publicadora percorre a lista de assinantes e chama o método de notificação declarado
+na interface do assinante em cada um dos objetos assinantes.
 
-3. The **Subscriber** interface declares the notification interface. In most cases, it consists of a single ```update``` method. The
-method may have several parameters that let the publisher pass some event details along with the update.
+3. A interface **Subscriber** declara a interface de notificação. Na maioria dos casos ela consiste de um único método ```update```. 
+O método pode ter vários parâmetros que permitem à publicadora passar detalhes do evento junto com a atualização.
 
-4. **Concrete Subscribers** perform some actions in response to notifications issued by the publisher. All of these classes must
-implement the same interface so the publisher isn’t coupled to concrete classes.
+4. **Concrete Subscribers** realizam algumas ações em resposta às notificações enviadas pela publicadora. Todas essas classes
+devem implementar a mesma interface para que a publicadora não fique acoplada a classes concretas.
 
-5. Usually, subscribers need some contextual information to handle the update correctly. For this reason, publishers often pass
-some context data as arguments of the notification method. The publisher can pass itself as an argument, letting subscriber 
-fetch any required data directly.
+5. Geralmente, assinantes precisam de alguma informação contextual para lidar com a atualização corretamente. Por esse
+motivo, as publicadoras quase sempre passam algum dado de contexto como argumentos do método de notificação. 
+A publicadora pode passar a si mesmo como um argumento, permitindo que o assinante recupere quaisquer dados diretamente.
 
-6. The **Client** creates publisher and subscriber objects separately and then registers subscribers for publisher updates.
+6. O **Client** cria a publicadora e os objetos assinantes separadamente, e então registra os assinantes para as atualizações da
+publicadora.
 
+## Aplicabilidade
 
-## Applicability
+**Utilize o padrão Observer quando mudanças no estado de um objeto podem precisar mudar outros objetos, e o atual conjunto 
+de objetos é desconhecido de antemão ou muda dinamicamente.**
 
-**Use the Observer pattern when changes to the state of one object may require changing other objects, and the actual set
-of objects is unknown beforehand or changes dynamically.**
-
-> You can often experience this problem when working with
-classes of the graphical user interface. For example, you created custom button classes, and you want to let the clients hook
-some custom code to your buttons so that it fires whenever a
-user presses a button.
+> Você pode vivenciar esse problema ao se trabalhar com classes de interfaces gráficas do usuário. Por exemplo, você criou
+classes de botões customizados, e quer deixar os clientes colocarem códigos customizados para seus botões para que
+eles ativem sempre que os usuários apertarem um botão.
 > 
-> The Observer pattern lets any object that implements the subscriber interface subscribe for event notifications in publisher
-objects. You can add the subscription mechanism to your buttons, letting the clients hook up their custom code via custom
-subscriber classes.
+> O padrão Observer permite que qualquer objeto que implemente a interface do assinante possa se inscrever para notificações 
+de eventos em objetos da publicadora. Você pode adicionar o mecanismo de inscrição em seus botões, permitindo que o cliente 
+coloque seu próprio código através de classes assinantes customizadas.
 
-**Use the pattern when some objects in your app must observe others, but only for a limited time or in specific cases.**
+**Utilize o padrão quando alguns objetos em sua aplicação devem observar outros, mas apenas por um tempo limitado ou
+em casos específicos.**
 
-> The subscription list is dynamic, so subscribers can join or leave the list whenever they need to.
+> A lista de inscrição é dinâmica, então assinantes podem entrar e sair da lista sempre que quiserem.
 
 
-## Some implementations
+## Algumas implementações
 - ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/observer/ifc/WeatherORama)

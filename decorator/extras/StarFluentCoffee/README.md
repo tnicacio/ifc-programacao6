@@ -1,4 +1,4 @@
-# Star Fluent Coffee
+# :coffee: Star Fluent Coffee
 
 Este projeto tem como base o exercício de implementação StarBuzzCoffee com tamanhos de bebidas em seu cardápio, do livro 
 Head First Design Patterns: A Brain-Friendly Guide, para o estudo do padrão de projetos Decorator.
@@ -10,7 +10,7 @@ Contudo, com o objetivo de se aprofundar nos estudos, foram feitas algumas adapt
 além do padrão de projeto Decorator.
 
 
-## Aplicação do padrão de projetos Decorator
+## :christmas_tree: Aplicação do padrão de projetos Decorator
 
 A *decoração* das bebidas foi feita utilizando-se a classe abstrata *CondimentDecorator*, que além de estender
 a interface Beverage, também possui uma referência para beverage.
@@ -75,7 +75,7 @@ public class Milk extends CondimentDecorator {
 }
 ```
 
-## Padrão Strategy para os custos das bebidas
+## :chess_pawn: Padrão Strategy para os custos das bebidas
 
 Utilizou-se o padrão de projetos Strategy para se calcular os custos das bebidas e seus condimentos.
 
@@ -190,7 +190,7 @@ public abstract class CondimentDecorator implements Beverage {
 }
 ```
 
-## Interface fluente
+## :rocket: Interface fluente
 A interface OrderFluent foi implementada com o objetivo de promover a fluência no processo de pedido de uma bebida. 
 
 Inicia-se escolhendo a bebida (beverage) através do método *SizeOrder beverage(Beverage beverage)* 
@@ -261,7 +261,7 @@ public class OrderFluentImpl implements OrderFluent.SizeOrder, OrderFluent.Condi
 }
 ```
 
-### E como ficou o processo do pedido de bebidas?
+### :eyes: E como ficou o processo do pedido de bebidas?
 
 Basta começar passando a bebida inicial e as opções seguintes disponíveis são mostradas de acordo com as definidas 
 na interface OrderFluent!
@@ -282,7 +282,7 @@ Beverage order2 = OrderFluent.beverage(new Espresso())
                 .checkout();            
 ```
 
-## Bônus
+## :octocat: Bônus
 
 - Você conhece o projeto *Enumus*? Vale muito à pena dar uma conferida nele: https://github.com/alexradzin/enumus
 E este meu projeto se inspirou na classe EnumMapValidator do Enumus para realizar validações no mapeamento da 

@@ -1,67 +1,57 @@
 # #STRATEGY
 
-Strategy is a behavioral design pattern that lets you define a
-family of algorithms, put each of them into a separate class,
-and make their objects interchangeable ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
+O Strategy é um padrão de projeto comportamental que permite que você defina uma família de algoritmos,
+coloque-os em classes separadas, e faça os objetos deles intercambiáveis ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
 
-- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#structure)
-- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#applicability)
-- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#some-implementations)
+- [Estrutura](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#estrutura)
+- [Aplicabilidade](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#aplicabilidade)
+- [Algumas implementações](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#algumas-implementacoes)
 
 
-## Structure
+## Estrutura
 
 ![strategy-structure](https://user-images.githubusercontent.com/50798315/135772953-0a49105d-d8c0-4f0e-875d-6b836f8c4540.png)
 
-1. The **Context** maintains a reference to one of the concrete strategies and communicates with this object only via the strategy interface.
+1. O **Context** mantém uma referência para uma das estratégias concretas e se comunica com esse objeto através da interface da estratégia.
 
-2. The **Strategy** interface is common to all concrete strategies. It declares a method the context uses to execute a strategy.
+2. A interface **Strategy** é comum à todas as estratégias concretas. Ela declara um método que o contexto usa para executar uma estratégia.
 
-3. **Concrete Strategies** implement different variations of an algorithm the context uses.
+3. **Concrete Strategies** implementam diferentes variações de um algoritmo que o contexto usa.
 
-5. The context calls the execution method on the linked strategy object each time it needs to run the algorithm. The context
-doesn’t know what type of strategy it works with or how the algorithm is executed.
+4. O contexto chama o método de execução no objeto estratégia ligado cada vez que ele precisa rodar um algoritmo. O contexto
+não sabe qual tipo de estratégia ele está trabalhando ou como o algoritmo é executado.
 
-5. The **Client** creates a specific strategy object and passes it to the context. The context exposes a setter which lets clients
-replace the strategy associated with the context at runtime
+5. O **Client** cria um objeto estratégia específico e passa ele para o contexto. O contexto expõe um setter que permite o cliente mudar 
+a estratégia associada com contexto durante a execução
 
 
-## Applicability
+## Aplicabilidade
 
-**Use the Strategy pattern when you want to use different variants of an algorithm within an object and be able to switch
-from one algorithm to another during runtime.**
+**Utilize o padrão Strategy quando você quer usar diferentes variações de um algoritmo dentro de um objeto, e ser capaz de
+trocar de um algoritmo para outro durante a execução.**
 
-> The Strategy pattern lets you indirectly alter the object’s
-behavior at runtime by associating it with different sub-objects
-which can perform specific sub-tasks in different ways.
+> O padrão Strategy permite que você altere indiretamente o comportamento de um objeto durante a execução ao associá-lo a 
+diferentes sub-objetos que pode fazer sub-tarefas específicas em diferentes formas.
 
-**Use the Strategy when you have a lot of similar classes that
-only differ in the way they execute some behavior.**
+**Utilize o Strategy quando você tem muitas classes parecidas que somente se diferenciam na forma em que executam algum comportamento.**
 
-> The Strategy pattern lets you extract the varying behavior into
-a separate class hierarchy and combine the original classes
-into one, thereby reducing duplicate code
+> O padrão Strategy permite que você extraia o comportamento variante para uma hierarquia de classe separada e combine
+as classes originais em uma, levando a redução de código duplicado.
 
-**Use the pattern to isolate the business logic of a class from
-the implementation details of algorithms that may not be as
-important in the context of that logic.**
+**Utilize o padrão para isolar a lógica do negócio de uma classe, dos detalhes de implementação de algoritmos que podem não
+ser tão importantes no contexto da lógica.**
 
-> The Strategy pattern lets you isolate the code, internal data,
-and dependencies of various algorithms from the rest of the
-code. Various clients get a simple interface to execute the
-algorithms and switch them at runtime.
+> O padrão Strategy permite que você isole o código, dados internos, e dependências de vários algoritmos, do restante do
+código. Vários clientes podem obter uma simples interface para executar os algoritmos e trocá-los durante a execução do programa.
 
-**Use the pattern when your class has a massive conditional
-operator that switches between different variants of the same
-algorithm.**
+**Utilize o padrão quando sua classe tem um operador condicional muito grande que alterna entre diferentes variações do
+mesmo algoritmo.**
 
-> The Strategy pattern lets you do away with such a conditional
-by extracting all algorithms into separate classes, all of which
-implement the same interface. The original object delegates
-execution to one of these objects, instead of implementing all
-variants of the algorithm.
+> O padrão Strategy permite que você se livre dessa condicional ao extrair todos os algoritmos para classes separadas, todos 
+eles implementando a mesma interface. O objeto original delega a execução de um desses objetos, ao invés de implementar todas as variações do algoritmo.
 
-## Some implementations
+
+## Algumas implementações
 
 - :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/DuckTales)
 

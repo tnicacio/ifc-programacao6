@@ -1,7 +1,7 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
-import com.tnicacio.starfluentcoffee.cost.CostStrategy;
-import com.tnicacio.starfluentcoffee.cost.DecafCost;
+import com.tnicacio.starfluentcoffee.coststrategy.CostStrategy;
+import com.tnicacio.starfluentcoffee.coststrategy.DecafCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

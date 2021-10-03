@@ -1,10 +1,10 @@
 package com.tnicacio.starfluentcoffee.util;
 
 import com.tnicacio.starfluentcoffee.beverage.Beverage;
-import com.tnicacio.starfluentcoffee.condiment.Milk;
-import com.tnicacio.starfluentcoffee.condiment.Mocha;
-import com.tnicacio.starfluentcoffee.condiment.Soy;
-import com.tnicacio.starfluentcoffee.condiment.Whip;
+import com.tnicacio.starfluentcoffee.condimentdecorator.Milk;
+import com.tnicacio.starfluentcoffee.condimentdecorator.Mocha;
+import com.tnicacio.starfluentcoffee.condimentdecorator.Soy;
+import com.tnicacio.starfluentcoffee.condimentdecorator.Whip;
 import com.tnicacio.starfluentcoffee.enums.Condiment;
 import lombok.experimental.UtilityClass;
 

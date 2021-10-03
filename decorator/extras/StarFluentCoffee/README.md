@@ -7,90 +7,69 @@ Contudo, com o objetivo de se aprofundar nos estudos, foram feitas algumas adapt
 além do padrão de projeto Decorator.
 
 
-## Interface fluente
-A interface Order foi implementada com o objetivo de promover a fluência no processo de pedido de uma bebida. 
+## Aplicação do padrão de projetos Decorator
 
-Inicia-se escolhendo a bebida (beverage) através do método *SizeOrder Order.beverage(Beverage beverage)* 
-que tem como retorno  o próximo passo da interface, que é a escolha do tamanho - traduzida pela utilização
-do método *CheckoutOrder size(Size size)* que nos leva à interface CheckoutOrder. 
-E em CheckoutOrder pode-se finalizar o pedido, através do método *checkout*.
+A *decoração* das bebidas foi feita utilizando-se a classe abstrata *CondimentDecorator*, que além de estender
+a interface Beverage, também possui uma referência para beverage.
 
-Contudo, e se quiséssemos adicionar condimentos, como leite ou creme, à nossa bebida? 
+Observe abaixo que em todos os métodos sobrescritos da interface Beverage, são passadas informações da referência
+à beverage (ou a própria beverage), ao invés de se ter e utilizar uma variável local como 'private Size size', por exemplo,
+dentro da classe.
 
-Para isso, foi criada a interface *CondimentsOrder*, que possui o método *CheckoutOrder add(Condiment condiment)*.
-E, fazendo com que a interface CheckoutOrder estenda CondimentsOrder, damos a possibilidade de se adicionar um ou 
-mais condimentos, ou realizar o *checkout* e finalizar o pedido.
-
+Vide métodos *getSize*, *setSize* e *cost* abaixo.
 
 ```
-public interface Order {
+public abstract class CondimentDecorator implements Beverage {
 
-    static SizeOrder beverage(Beverage beverage) {
-        Objects.requireNonNull(beverage, "Beverage is required");
-        return new OrderFluent(beverage);
+    protected Beverage beverage;
+
+    ...
+
+    @Deprecated
+    public CondimentDecorator() {
     }
 
-    interface SizeOrder {
-        CheckoutOrder size(Size size);
-    }
-
-    interface CondimentsOrder {
-        CheckoutOrder add(Condiment condiment);
-    }
-
-    interface CheckoutOrder extends CondimentsOrder {
-        Beverage checkout();
-    }
-
-}
-
-```
-
-E OrderFluent é a classe concreta responsável por implementar a interface Order.
-
-```
-public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Order.CheckoutOrder {
-
-    private Beverage beverage;
-
-    public OrderFluent(Beverage beverage) {
+    public CondimentDecorator(Beverage beverage, ...) {
         this.beverage = beverage;
+        ...
     }
 
     @Override
-    public Order.CheckoutOrder size(Size size) {
-        Objects.requireNonNull(size, "Size is required");
+    public Size getSize() {
+        return beverage.getSize();
+    }
+
+    @Override
+    public void setSize(Size size) {
         beverage.setSize(size);
-        return this;
     }
 
     @Override
-    public Order.CheckoutOrder add(Condiment condiment) {
-        beverage = CondimentDecoratorUtil.decorate(beverage, condiment);
-        return this;
+    public double cost() {
+        return costStrategy.cost(beverage);
     }
 
-    @Override
-    public Beverage checkout() {
-        return beverage;
-    }
+    ...
 
 }
 ```
 
-### Palhinha de como ficou fluente o processo de pedido de bebidas
+E os condimentos concretos, que herdam de CondimentDecorator, sobrescrevem os demais métodos de Beverage também
+utilizando a referência à beverage e incorporando mais características, tal como no método *getDescription*.
 
 ```
-Beverage order = Order.beverage(new DarkRoast())
-                .size(Size.BIG)
-                .add(Condiment.MILK)
-                .add(Condiment.MILK)
-                .add(Condiment.MOCHA)
-                .checkout();
-                
-Beverage order2 = Order.beverage(new Espresso())
-                .size(Size.MEDIUM)
-                .checkout();            
+public class Milk extends CondimentDecorator {
+
+    public Milk(Beverage beverage) {
+        super(beverage, new MilkCost());
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + ", Milk";
+    }
+
+}
 ```
 
 ## Padrão Strategy para os custos das bebidas
@@ -103,10 +82,20 @@ public interface CostStrategy {
     double cost(Beverage beverage);
 
 }
+
+public class DarkRoastCost implements CostStrategy {
+
+    @Override
+    public double cost(Beverage beverage) {
+        // Calculation logic here...
+    }
+
+}
 ```
 
 Todas as classes que implementaram a interface *Beverage* possuem uma referência para a estratégia de cálculo de custo.
-Abaixo tem-se a classe DarkRoast que é uma das bebidas iniciais, e Milk - que é um possível condimento para bebidas.
+Abaixo tem-se as classes DarkRoast (uma das bebidas iniciais), e Milk  (um possível condimento para as bebidas)
+utilizando o padrão de projetos Strategy para o cálculo do custo da bebida.
 
 ```
 public class DarkRoast implements Beverage {
@@ -165,10 +154,7 @@ public class Milk extends CondimentDecorator {
         super(beverage, new MilkCost());
     }
 
-    @Override
-    public String getDescription() {
-        return beverage.getDescription() + ", Milk";
-    }
+    ...
 
 }
 
@@ -186,16 +172,8 @@ public abstract class CondimentDecorator implements Beverage {
         this.beverage = beverage;
         setCostStrategy(costStrategy);
     }
-
-    @Override
-    public Size getSize() {
-        return beverage.getSize();
-    }
-
-    @Override
-    public void setSize(Size size) {
-        beverage.setSize(size);
-    }
+    
+    ...
 
     @Override
     public double cost() {
@@ -209,11 +187,103 @@ public abstract class CondimentDecorator implements Beverage {
 }
 ```
 
+## Interface fluente
+A interface OrderFluent foi implementada com o objetivo de promover a fluência no processo de pedido de uma bebida. 
+
+Inicia-se escolhendo a bebida (beverage) através do método *SizeOrder beverage(Beverage beverage)* 
+que tem como retorno  o próximo passo da interface, que é a escolha do tamanho - traduzida pela utilização
+do método *CheckoutOrder size(Size size)* que nos leva à interface CheckoutOrder. 
+E em CheckoutOrder pode-se finalizar o pedido e se obter a bebida final através do método *checkout*.
+
+Contudo, e se quiséssemos adicionar condimentos, como leite, leite de soja ou creme, à nossa bebida? 
+
+Para isso, foi criada a interface *CondimentsOrder*, que possui o método *CheckoutOrder add(Condiment condiment)*.
+E, fazendo com que a interface CheckoutOrder estenda CondimentsOrder, damos a possibilidade de ou adicionar um ou 
+mais condimentos, ou realizar o *checkout* e finalizar o pedido.
+
+
+```
+public interface OrderFluent {
+
+    static SizeOrder beverage(Beverage beverage) {
+        Objects.requireNonNull(beverage, "Beverage is required");
+        return new OrderFluent(beverage);
+    }
+
+    interface SizeOrder {
+        CheckoutOrder size(Size size);
+    }
+
+    interface CondimentsOrder {
+        CheckoutOrder add(Condiment condiment);
+    }
+
+    interface CheckoutOrder extends CondimentsOrder {
+        Beverage checkout();
+    }
+
+}
+
+```
+
+E OrderFluentImpl é a classe concreta responsável por implementar a interface OrderFluent.
+
+```
+public class OrderFluentImpl implements OrderFluent.SizeOrder, OrderFluent.CondimentsOrder, OrderFluent.CheckoutOrder {
+
+    private Beverage beverage;
+
+    public OrderFluentImpl(Beverage beverage) {
+        this.beverage = beverage;
+    }
+
+    @Override
+    public OrderFluent.CheckoutOrder size(Size size) {
+        Objects.requireNonNull(size, "Size is required");
+        beverage.setSize(size);
+        return this;
+    }
+
+    @Override
+    public OrderFluent.CheckoutOrder add(Condiment condiment) {
+        beverage = CondimentDecoratorUtil.decorate(beverage, condiment);
+        return this;
+    }
+
+    @Override
+    public Beverage checkout() {
+        return beverage;
+    }
+
+}
+```
+
+### E como ficou o processo do pedido de bebidas?
+
+Basta começar passando a bebida inicial e as opções seguintes disponíveis são mostradas de acordo com as definidas 
+na interface OrderFluent!
+
+Veja abaixo que, após se definir a bebida inicial, obrigatoriamente deve-se definir o tamanho. E após isso pode-se 
+adicionar um ou mais condimentos, ou realizar o checkout.
+
+```
+Beverage order = OrderFluent.beverage(new DarkRoast())
+                .size(Size.BIG)
+                .add(Condiment.MILK)
+                .add(Condiment.MILK)
+                .add(Condiment.MOCHA)
+                .checkout();
+                
+Beverage order2 = OrderFluent.beverage(new Espresso())
+                .size(Size.MEDIUM)
+                .checkout();            
+```
+
 ## Bônus
 
 - Você conhece o projeto *Enumus*? Vale muito à pena dar uma conferida nele: https://github.com/alexradzin/enumus
-E este meu projeto se inspirou na classe EnumMapValidator do Enumus para realizar validações no processo de *decoração*
-de bebidas com condimentos!
+E este meu projeto se inspirou na classe EnumMapValidator do Enumus para realizar validações no mapeamento da 
+enumeração *Condiment* para fazer o processo de *decoração* das bebidas!
 
 ```
 @UtilityClass

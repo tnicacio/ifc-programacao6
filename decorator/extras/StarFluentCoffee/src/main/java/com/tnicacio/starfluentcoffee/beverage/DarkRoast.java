@@ -1,7 +1,7 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
-import com.tnicacio.starfluentcoffee.cost.CostStrategy;
-import com.tnicacio.starfluentcoffee.cost.DarkRoastCost;
+import com.tnicacio.starfluentcoffee.coststrategy.CostStrategy;
+import com.tnicacio.starfluentcoffee.coststrategy.DarkRoastCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
 
 public class DarkRoast implements Beverage {

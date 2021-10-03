@@ -1,7 +1,7 @@
 package com.tnicacio.starfluentcoffee.beverage;
 
-import com.tnicacio.starfluentcoffee.cost.CostStrategy;
-import com.tnicacio.starfluentcoffee.cost.HouseBlendCost;
+import com.tnicacio.starfluentcoffee.coststrategy.CostStrategy;
+import com.tnicacio.starfluentcoffee.coststrategy.HouseBlendCost;
 import com.tnicacio.starfluentcoffee.enums.Size;
 
 public class HouseBlend implements Beverage {

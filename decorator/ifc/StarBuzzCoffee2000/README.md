@@ -1,4 +1,4 @@
-# :coffee::arrow_up_small: Star Buzz Coffee (with ~~Lasers~~ Sizes)
+# :zap: Star Buzz Coffee (with ~~Lasers~~ Sizes)
 
 Implementação do Star Buzz Coffee do livro *Head First: Design Patterns - A Brain-Friendly Guide* de Freeman, E. e Robson, E.
 Agora com a funcionalidade de escolha de tamanho da bebida, conforme descrição abaixo:

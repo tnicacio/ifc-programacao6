@@ -284,9 +284,10 @@ Beverage order2 = OrderFluent.beverage(new Espresso())
 
 ## :octocat: Bônus
 
-- Você conhece o projeto *Enumus*? Vale muito à pena dar uma conferida nele: https://github.com/alexradzin/enumus
-E este meu projeto se inspirou na classe EnumMapValidator do Enumus para realizar validações no mapeamento da 
-enumeração *Condiment* para fazer o processo de *decoração* das bebidas!
+Você conhece o projeto *Enumus*? Vale muito à pena dar uma conferida nele: https://github.com/alexradzin/enumus 
+
+Este meu projeto se inspirou na classe EnumMapValidator do Enumus para realizar validações no mapeamento da 
+enumeração *Condiment* durante o processo de *decoração* das bebidas!
 
 ```
 @UtilityClass

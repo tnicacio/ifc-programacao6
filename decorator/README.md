@@ -45,4 +45,4 @@ class, the only way to reuse the existing behavior would be to wrap the class wi
 
 - :zap: [Star Buzz Coffee (with ~~Lasers~~ Sizes)](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/ifc/StarBuzzCoffee2000)
 
-- # :star2: [Star Fluent Coffee](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/extras/StarFluentCoffee)
+- :star2: [Star Fluent Coffee](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/extras/StarFluentCoffee)

@@ -1,5 +1,8 @@
 # Strategy Structure
 
+![strategy-structure](https://user-images.githubusercontent.com/50798315/135772953-0a49105d-d8c0-4f0e-875d-6b836f8c4540.png)
+
+
 1. The Context maintains a reference to one of the concrete strategies and communicates with this object only via the strategy interface.
 
 2. The Strategy interface is common to all concrete strategies. It declares a method the context uses to execute a strategy.

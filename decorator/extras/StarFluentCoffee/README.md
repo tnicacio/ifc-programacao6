@@ -49,7 +49,7 @@ public interface Order {
 E OrderFluent é a classe concreta responsável por implementar a interface Order.
 
 ```
-    public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Order.CheckoutOrder {
+public class OrderFluent implements Order.SizeOrder, Order.CondimentsOrder, Order.CheckoutOrder {
 
     private Beverage beverage;
 

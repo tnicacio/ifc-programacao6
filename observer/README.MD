@@ -3,9 +3,9 @@ Observer is a behavioral design pattern that lets you define a
 subscription mechanism to notify multiple objects about any
 events that happen to the object they’re observing ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
 
-- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/observer/README.MD#structure)
-- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/observer/README.MD#applicability)
-- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/observer/README.MD#some-implementations)
+- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#structure)
+- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#applicability)
+- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/observer#some-implementations)
 
 ## Structure
 ![observer-structure](https://user-images.githubusercontent.com/50798315/135774059-4b3814b8-a090-41a2-8d4f-1f6bfc0d0bfe.png)

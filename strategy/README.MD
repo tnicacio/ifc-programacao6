@@ -4,9 +4,9 @@ Strategy is a behavioral design pattern that lets you define a
 family of algorithms, put each of them into a separate class,
 and make their objects interchangeable ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
 
-- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy/README.MD#structure)
-- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy/README.MD#applicability)
-- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy/README.MD#some-implementations)
+- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#structure)
+- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#applicability)
+- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/strategy#some-implementations)
 
 
 ## Structure

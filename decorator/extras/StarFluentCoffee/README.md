@@ -1,9 +1,12 @@
 # Star Fluent Coffee
 
-Este projeto tem como base o exercício de implementação StarBuzzCoffee, do livro 
+Este projeto tem como base o exercício de implementação StarBuzzCoffee com tamanhos de bebidas em seu cardápio, do livro 
 Head First Design Patterns: A Brain-Friendly Guide, para o estudo do padrão de projetos Decorator.
 
-Contudo, com o objetivo de se aprofundar nos estudos, foram feitas algumas adaptações e se utilizou mais técnicas
+## Modelo apresentado no livro, sem os tamanhos de bebidas
+![modelo-decorator-starbuzzcoffee](https://user-images.githubusercontent.com/50798315/135762312-fb3d010a-f77f-4338-8da1-774bbcc83f08.png)
+
+Contudo, com o objetivo de se aprofundar nos estudos, foram feitas algumas adaptações e foram utilizadas mais técnicas 
 além do padrão de projeto Decorator.
 
 

@@ -1,4 +1,4 @@
-# Strategy Structure
+# :top: Strategy Structure
 
 ![strategy-structure](https://user-images.githubusercontent.com/50798315/135772953-0a49105d-d8c0-4f0e-875d-6b836f8c4540.png)
 

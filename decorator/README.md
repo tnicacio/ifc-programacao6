@@ -3,9 +3,9 @@
 Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside
 special wrapper objects that contain the behaviors ([SHEVTS, 2021](https://refactoring.guru/pt-br/design-patterns/book)).
 
-- [Structure](https://github.com/tnicacio/ifc-programacao6/blob/main/decorator/README.MD#structure)
-- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/decorator/README.MD#applicability)
-- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/decorator/README.MD#some-implementations)
+- [Structure](https://github.com/tnicacio/ifc-programacao6/tree/main/decorator#structure)
+- [Applicability](https://github.com/tnicacio/ifc-programacao6/blob/main/decorator#applicability)
+- [Some implementations](https://github.com/tnicacio/ifc-programacao6/blob/main/decorator#some-implementations)
 
 
 ## Structure

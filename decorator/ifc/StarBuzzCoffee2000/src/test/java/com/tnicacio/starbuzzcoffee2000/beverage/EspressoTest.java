@@ -1,5 +1,7 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.EspressoCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -31,27 +33,11 @@ class EspressoTest {
     class Cost {
 
         @Test
-        void shouldReturn199centsWhenSizeMedium() {
-            espresso.setSize(Size.MEDIUM);
-            assertThat(espresso.cost()).isEqualTo(1.99);
-        }
-
-        @Test
-        void shouldReturn189centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyDarkRoastCostMethod() {
             espresso.setSize(Size.SMALL);
-            assertThat(espresso.cost()).isEqualTo(1.89);
-        }
+            CostStrategy costStrategy = new EspressoCost();
 
-        @Test
-        void shouldReturn209centsWhenSizeBig() {
-            espresso.setSize(Size.BIG);
-            assertThat(espresso.cost()).isEqualTo(2.09);
-        }
-
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            espresso.setSize(null);
-            assertThat(espresso.cost()).isEqualTo(1.99);
+            assertThat(espresso.cost()).isEqualTo(costStrategy.cost(espresso));
         }
 
     }

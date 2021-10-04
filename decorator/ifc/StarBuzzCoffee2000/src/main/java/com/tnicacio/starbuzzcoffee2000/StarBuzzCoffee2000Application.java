@@ -16,7 +16,7 @@ public class StarBuzzCoffee2000Application {
         beverage = new Milk(beverage);
         System.out.println(beverage.cost() + beverage.getDescription());
 
-        System.out.println("Using size decorator...");
+        System.out.println("The same can be achieved by using a size decorator...");
         Beverage beverage1 = new DarkRoast();
         beverage1 = new Milk(beverage1);
         beverage1 = new SmallBeverage(beverage1);

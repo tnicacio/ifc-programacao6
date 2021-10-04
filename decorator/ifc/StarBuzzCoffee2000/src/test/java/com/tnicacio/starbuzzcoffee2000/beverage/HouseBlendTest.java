@@ -1,5 +1,7 @@
 package com.tnicacio.starbuzzcoffee2000.beverage;
 
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.HouseBlendCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -31,27 +33,11 @@ class HouseBlendTest {
     class Cost {
 
         @Test
-        void shouldReturn89centsWhenSizeMedium() {
-            houseBlend.setSize(Size.MEDIUM);
-            assertThat(houseBlend.cost()).isEqualTo(0.89);
-        }
-
-        @Test
-        void shouldReturn79centsWhenSizeSmall() {
+        void shouldExecuteCostStrategyDarkRoastCostMethod() {
             houseBlend.setSize(Size.SMALL);
-            assertThat(houseBlend.cost()).isEqualTo(.79);
-        }
+            CostStrategy costStrategy = new HouseBlendCost();
 
-        @Test
-        void shouldReturn99centsWhenSizeBig() {
-            houseBlend.setSize(Size.BIG);
-            assertThat(houseBlend.cost()).isEqualTo(.99);
-        }
-
-        @Test
-        void shouldReturnDefaultSizeCostWhenSizeIsNotDefined() {
-            houseBlend.setSize(null);
-            assertThat(houseBlend.cost()).isEqualTo(.89);
+            assertThat(houseBlend.cost()).isEqualTo(costStrategy.cost(houseBlend));
         }
 
     }

@@ -1,15 +1,16 @@
-package com.tnicacio.starfluentcoffee.condimentdecorator;
+package com.tnicacio.starbuzzcoffee2000.condimentdecorator;
 
-import com.tnicacio.starfluentcoffee.beverage.Beverage;
-import com.tnicacio.starfluentcoffee.coststrategy.CostStrategy;
-import com.tnicacio.starfluentcoffee.enums.Size;
-import com.tnicacio.starfluentcoffee.test.factory.CondimentDecoratorDefaultImpl;
-import org.assertj.core.api.Assertions;
+import com.tnicacio.starbuzzcoffee2000.beverage.Beverage;
+import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
+import com.tnicacio.starbuzzcoffee2000.enums.Size;
+import com.tnicacio.starbuzzcoffee2000.test.factory.CondimentDecoratorDefaultImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CondimentDecoratorTest {
 
@@ -19,19 +20,34 @@ class CondimentDecoratorTest {
 
     @BeforeEach
     void setUp() {
-        beverage = Mockito.spy(Beverage.class);
+        beverage = Mockito.mock(Beverage.class);
         costStrategy = Mockito.mock(CostStrategy.class);
 
-        condimentDecorator = Mockito.spy(CondimentDecorator.class);
+        condimentDecorator = Mockito.mock(CondimentDecorator.class, Mockito.CALLS_REAL_METHODS);
         condimentDecorator.beverage = beverage;
         condimentDecorator.setCostStrategy(costStrategy);
     }
 
     @Nested
-    class GetSize {
+    class Constructor {
+        @Test
+        void shouldSetBeverage() {
+            condimentDecorator = new CondimentDecoratorDefaultImpl(beverage, costStrategy);
+            assertThat(condimentDecorator.beverage).isEqualTo(beverage);
+        }
 
         @Test
-        void shouldCallBeverageGetSize() {
+        void shouldSetCostStrategy() {
+            condimentDecorator = new CondimentDecoratorDefaultImpl(beverage, costStrategy);
+            assertThat(condimentDecorator.getCostStrategy()).isEqualTo(costStrategy);
+        }
+    }
+
+    @Nested
+    class GetAndSetSize {
+
+        @Test
+        void shouldExecuteBeverageGetSize() {
             InOrder inOrder = Mockito.inOrder(condimentDecorator, beverage);
 
             condimentDecorator.getSize();
@@ -42,17 +58,7 @@ class CondimentDecoratorTest {
         }
 
         @Test
-        void shouldReturnBeverageSize() {
-            Assertions.assertThat(condimentDecorator.getSize()).isEqualTo(beverage.getSize());
-        }
-
-    }
-
-    @Nested
-    class SetSize {
-
-        @Test
-        void shouldCallBeverageSetSize() {
+        void shouldExecuteBeverageSetSize() {
             InOrder inOrder = Mockito.inOrder(condimentDecorator, beverage);
             Size size = Size.SMALL;
 
@@ -62,45 +68,20 @@ class CondimentDecoratorTest {
             inOrder.verify(beverage).setSize(size);
             inOrder.verifyNoMoreInteractions();
         }
-
     }
 
     @Nested
     class Cost {
-
         @Test
         void shouldExecuteCostStrategyCostMethod() {
             InOrder inOrder = Mockito.inOrder(condimentDecorator, costStrategy);
 
             condimentDecorator.cost();
-			
+
             inOrder.verify(condimentDecorator).cost();
             inOrder.verify(costStrategy).cost(beverage);
             inOrder.verifyNoMoreInteractions();
         }
-
-        @Test
-        void shouldReturnCostFromCostStrategy() {
-            Assertions.assertThat(condimentDecorator.cost()).isEqualTo(costStrategy.cost(beverage));
-        }
-
-    }
-
-    @Nested
-    class Constructor{
-
-        @Test
-        void shouldSetBeverage() {
-            CondimentDecorator condimentDecorator = new CondimentDecoratorDefaultImpl(beverage);
-            Assertions.assertThat(condimentDecorator.beverage).isEqualTo(beverage);
-        }
-
-        @Test
-        void shouldInitializeWithCostStrategy() {
-            CondimentDecorator condimentDecorator = new CondimentDecoratorDefaultImpl(beverage);
-            Assertions.assertThat(condimentDecorator.cost()).isNotNull();
-        }
-
     }
 
 }

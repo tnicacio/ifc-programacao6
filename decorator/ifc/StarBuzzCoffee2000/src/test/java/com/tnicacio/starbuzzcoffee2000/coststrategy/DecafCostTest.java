@@ -11,38 +11,38 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class DecafCostTest {
 
-    private DecafCost decafCost;
+    private CostStrategy costStrategy;
     private Beverage beverage;
 
     @BeforeEach
     void setUp() {
-        decafCost = new DecafCost();
+        costStrategy = new DecafCost();
         beverage = new Decaf();
     }
 
     @Test
     void shouldReturn105centsWhenSizeMedium() {
         beverage.setSize(Size.MEDIUM);
-        assertThat(decafCost.cost(beverage)).isEqualTo(1.05);
+        assertThat(costStrategy.cost(beverage)).isEqualTo(1.05);
     }
 
     @Test
     void shouldReturn95centsWhenSizeSmall() {
         beverage.setSize(Size.SMALL);
-        assertThat(decafCost.cost(beverage)).isEqualTo(.95);
+        assertThat(costStrategy.cost(beverage)).isEqualTo(.95);
     }
 
     @Test
     void shouldReturn115centsWhenSizeBig() {
         beverage.setSize(Size.BIG);
-        assertThat(decafCost.cost(beverage)).isEqualTo(1.15);
+        assertThat(costStrategy.cost(beverage)).isEqualTo(1.15);
     }
 
     @Test
     void shouldThrowNullPointerExceptionWhenBeverageSizeIsNull() {
         beverage.setSize(null);
         assertThatExceptionOfType(NullPointerException.class)
-                .isThrownBy(() -> decafCost.cost(beverage))
+                .isThrownBy(() -> costStrategy.cost(beverage))
                 .withMessage("Beverage size must be defined beforehand");
 
     }

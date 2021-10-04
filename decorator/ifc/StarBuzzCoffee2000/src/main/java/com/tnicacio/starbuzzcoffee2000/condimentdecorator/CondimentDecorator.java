@@ -11,7 +11,7 @@ public abstract class CondimentDecorator implements Beverage {
 
     public CondimentDecorator(Beverage beverage, CostStrategy costStrategy) {
         this.beverage = beverage;
-        this.costStrategy = costStrategy;
+        setCostStrategy(costStrategy);
     }
 
     @Override
@@ -29,4 +29,11 @@ public abstract class CondimentDecorator implements Beverage {
         return costStrategy.cost(beverage);
     }
 
+    public void setCostStrategy(CostStrategy costStrategy) {
+        this.costStrategy = costStrategy;
+    }
+
+    public CostStrategy getCostStrategy() {
+        return costStrategy;
+    }
 }

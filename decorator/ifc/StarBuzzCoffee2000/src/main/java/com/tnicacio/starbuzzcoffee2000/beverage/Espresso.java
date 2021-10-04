@@ -4,7 +4,7 @@ import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
 import com.tnicacio.starbuzzcoffee2000.coststrategy.EspressoCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
-public class Espresso implements Beverage {
+public final class Espresso implements Beverage {
 
     private CostStrategy costStrategy;
     private Size size;

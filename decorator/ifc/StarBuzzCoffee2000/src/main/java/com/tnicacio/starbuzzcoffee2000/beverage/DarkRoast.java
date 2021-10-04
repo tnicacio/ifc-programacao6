@@ -4,7 +4,7 @@ import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
 import com.tnicacio.starbuzzcoffee2000.coststrategy.DarkRoastCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
-public class DarkRoast implements Beverage {
+public final class DarkRoast implements Beverage {
 
     private CostStrategy costStrategy;
     private Size size;

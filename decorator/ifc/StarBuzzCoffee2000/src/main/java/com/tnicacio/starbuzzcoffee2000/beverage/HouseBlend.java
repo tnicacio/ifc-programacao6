@@ -4,7 +4,7 @@ import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
 import com.tnicacio.starbuzzcoffee2000.coststrategy.HouseBlendCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
-public class HouseBlend implements Beverage {
+public final class HouseBlend implements Beverage {
 
     private CostStrategy costStrategy;
     private Size size;

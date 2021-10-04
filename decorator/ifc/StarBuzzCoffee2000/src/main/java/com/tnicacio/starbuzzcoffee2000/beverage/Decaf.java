@@ -4,7 +4,7 @@ import com.tnicacio.starbuzzcoffee2000.coststrategy.CostStrategy;
 import com.tnicacio.starbuzzcoffee2000.coststrategy.DecafCost;
 import com.tnicacio.starbuzzcoffee2000.enums.Size;
 
-public class Decaf implements Beverage {
+public final class Decaf implements Beverage {
 
     private CostStrategy costStrategy;
     private Size size;

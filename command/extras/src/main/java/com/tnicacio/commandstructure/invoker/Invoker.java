@@ -1,6 +1,6 @@
 package com.tnicacio.commandstructure.invoker;
 
-import com.tnicacio.commandstructure.comand.Command;
+import com.tnicacio.commandstructure.command.Command;
 
 /**
  * The Invoker holds a command and at some point asks the command

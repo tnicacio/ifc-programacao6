@@ -1,4 +1,4 @@
-package com.tnicacio.commandstructure.comand;
+package com.tnicacio.commandstructure.command;
 
 /**
  * Command declares an interface for all commands. As you already know, a

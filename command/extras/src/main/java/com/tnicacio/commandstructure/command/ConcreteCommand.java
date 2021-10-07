@@ -1,4 +1,4 @@
-package com.tnicacio.commandstructure.comand;
+package com.tnicacio.commandstructure.command;
 
 import com.tnicacio.commandstructure.receiver.Receiver;
 

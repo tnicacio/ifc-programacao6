@@ -1,7 +1,7 @@
 package com.tnicacio.commandstructure;
 
-import com.tnicacio.commandstructure.comand.Command;
-import com.tnicacio.commandstructure.comand.ConcreteCommand;
+import com.tnicacio.commandstructure.command.Command;
+import com.tnicacio.commandstructure.command.ConcreteCommand;
 import com.tnicacio.commandstructure.invoker.Invoker;
 import com.tnicacio.commandstructure.receiver.Receiver;
 

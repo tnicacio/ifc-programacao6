@@ -5,7 +5,7 @@ Grande parte dos projetos serão exercícios realizados para a disciplina de Pro
 
 Contudo, em pastas *extras* serão colocados materiais relativos a mais estudos sobre os diversos padrões, em que planejo utilizar como base o livro *[Mergulho nos Padrões de Projetos](https://refactoring.guru/pt-br/design-patterns/book)*.
 
-As implementações possuem testes cobrindo suas respectivas regras de negócio, e para os testes foram utilizadas as tecnologias abaixo:
+Para os testes foram utilizadas as tecnologias abaixo:
 - [JUnit5](https://junit.org/junit5/), como framework base.
 - [AssertJ](https://assertj.github.io/doc/), como facilitador para testes - especialmente nos que possuem coleções e saídas com strings.
 - [Mockito](https://site.mockito.org/), muito útil quando se é necessário testar se alguma variável foi persistida ou se determinados métodos foram chamados, por exemplo.

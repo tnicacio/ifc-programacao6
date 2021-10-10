@@ -78,3 +78,4 @@ A operação reversa também cobra um preço: ela pode ter sua implementação d
 ## Algumas implementações
 
 - :man_cook: [Command Structure](https://github.com/tnicacio/ifc-programacao6/edit/main/command/extras/command-structure)
+- :woman_cook: [Residential Remote Controller](https://github.com/tnicacio/ifc-programacao6/tree/main/command/ifc/residential-remote-controller)

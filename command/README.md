@@ -16,6 +16,8 @@ e suporte operações que não podem ser feitas
 
 ## Estrutura
 
+![command-refactoring-guru](https://user-images.githubusercontent.com/50798315/136704240-11a47da6-b6da-4e9e-83fa-ffa143c86259.png)
+
 1. A classe **Remetente** (ou invocadora, Invoker) é responsável por iniciar os pedidos. Essa classe deve ter um
    campo para armazenar a referência para um objeto comando. O remetente aciona aquele comando ao invés de enviar o 
    pedido diretamente para o destinatário. Observe que o remetente não é responsável por criar o objeto comando. 

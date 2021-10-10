@@ -15,8 +15,10 @@ Para os testes foram utilizadas as tecnologias abaixo:
 
 Clique em um padrão abaixo para aprender mais sobre ele, ver sua estrutura, aplicabilidade e exemplos de implementações
 
-- [#STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy)
+- [STRATEGY](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy)
 
-- [#OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/observer)
+- [OBSERVER](https://github.com/tnicacio/ifc-programacao6/tree/main/observer)
 
-- [#DECORATOR](https://github.com/tnicacio/ifc-programacao6/tree/main/decorator)
+- [DECORATOR](https://github.com/tnicacio/ifc-programacao6/tree/main/decorator)
+
+- [COMMAND](https://github.com/tnicacio/ifc-programacao6/tree/main/command)

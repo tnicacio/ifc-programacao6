@@ -38,7 +38,7 @@ e suporte operações que não podem ser feitas
    incluindo uma instância do destinatário, para o construtor do comando. Após isso, o comando resultante pode ser 
    associado com um ou múltiplos destinatários.
 
-# Aplicabilidade
+## Aplicabilidade
 
 **Utilize o padrão Command quando você quer parametrizar objetos com operações.**
 

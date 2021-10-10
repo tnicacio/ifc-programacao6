@@ -17,8 +17,8 @@ public class Client {
         Command command = new ConcreteCommand(receiver);
         Invoker invoker = new Invoker(command);
 
-        command.execute();
-        command.undo();
+        invoker.execute();
+        invoker.undo();
     }
 
 }

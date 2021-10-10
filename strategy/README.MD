@@ -59,8 +59,8 @@ eles implementando a mesma interface. O objeto original delega a execução de u
 
 - :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/RentABoat)
 
-- :100: [~~Smooth~~ Math Operator](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/extras/MathOperator)
+- :100: [~~Smooth~~ Math Operator](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/extras/math-operator)
 
-- :top: [Strategy Structure](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/extras/StrategyStructure)
+- :top: [Strategy Structure](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/extras/strategy-structure)
 
-- :credit_card: [Pay Pay](https://github.com/tnicacio/ifc-programacao6/edit/main/strategy/extras/PayPay)
+- :credit_card: [Pay Pay](https://github.com/tnicacio/ifc-programacao6/edit/main/strategy/extras/pay-pay)

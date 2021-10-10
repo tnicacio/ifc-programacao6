@@ -53,11 +53,11 @@ eles implementando a mesma interface. O objeto original delega a execução de u
 
 ## Algumas implementações
 
-- :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/DuckTales)
+- :duck: [Lagoa dos Patos](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/duck-tales)
 
-- :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/Prefeitura)
+- :classical_building: [Prefeitura](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/prefeitura)
 
-- :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/RentABoat)
+- :boat: [Rent-A-Boat](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/ifc/rent-a-boat)
 
 - :100: [~~Smooth~~ Math Operator](https://github.com/tnicacio/ifc-programacao6/tree/main/strategy/extras/math-operator)
 

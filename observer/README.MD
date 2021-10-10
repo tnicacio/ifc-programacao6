@@ -52,4 +52,4 @@ em casos específicos.**
 
 
 ## Algumas implementações
-- ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/observer/ifc/WeatherORama)
+- ⛅ [Weather-O-Rama](https://github.com/tnicacio/ifc-programacao6/tree/main/observer/ifc/weather-o-rama)

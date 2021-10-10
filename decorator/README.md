@@ -40,8 +40,8 @@ classe. Para uma classe final, a única maneira de reutilizar seu comportamento 
 
 ## Algumas implementações
 
-- :coffee: [Star Buzz Coffee](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/ifc/StarBuzzCoffee)
+- :coffee: [Star Buzz Coffee](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/ifc/star-buzz-coffee)
 
-- :zap: [Star Buzz Coffee (with ~~Lasers~~ Sizes)](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/ifc/StarBuzzCoffee2000)
+- :zap: [Star Buzz Coffee (with ~~Lasers~~ Sizes)](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/ifc/star-buzz-coffee-2000)
 
 - :star2: [Star Fluent Coffee](https://github.com/tnicacio/ifc-programacao6/edit/main/decorator/extras/star-fluent-coffee)

@@ -1,17 +1,19 @@
 package com.tnicacio.gumball.states;
 
-import com.tnicacio.gumball.dtos.GumballMachineDto;
+import com.tnicacio.gumball.entities.GumballMachine;
 import com.tnicacio.gumball.entities.enums.StateType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-@Component
 public class WinnerState implements State {
 
     Logger log = LoggerFactory.getLogger(WinnerState.class);
 
-    private GumballMachineDto gumballMachine;
+    private GumballMachine gumballMachine;
+
+    public WinnerState(GumballMachine gumballMachine) {
+        this.gumballMachine = gumballMachine;
+    }
 
     @Override
     public void insertCoin() {
@@ -46,11 +48,6 @@ public class WinnerState implements State {
         } else {
             gumballMachine.setStateType(StateType.SOLD_OUT);
         }
-    }
-
-    @Override
-    public void setMachine(GumballMachineDto gumballMachine) {
-        this.gumballMachine = gumballMachine;
     }
 
 }

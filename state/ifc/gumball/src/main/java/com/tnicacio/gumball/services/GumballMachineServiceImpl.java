@@ -24,33 +24,29 @@ public class GumballMachineServiceImpl extends GumballMachineCrudServiceImpl imp
     @Override
     public GumballMachineDto insertCoin(UUID id) {
         GumballMachine gumballMachine = repository.getById(id);
-        GumballMachineDto dto = new GumballMachineDto(gumballMachine);
-        stateService.getStateFrom(dto).insertCoin();
-        return super.update(id, dto);
+        stateService.getStateFrom(gumballMachine).insertCoin();
+        return super.update(id, new GumballMachineDto(gumballMachine));
     }
 
     @Override
     public GumballMachineDto ejectCoin(UUID id) {
         GumballMachine gumballMachine = repository.getById(id);
-        GumballMachineDto dto = new GumballMachineDto(gumballMachine);
-        stateService.getStateFrom(dto).ejectCoin();
-        return super.update(id, dto);
+        stateService.getStateFrom(gumballMachine).ejectCoin();
+        return super.update(id, new GumballMachineDto(gumballMachine));
     }
 
     @Override
     public GumballMachineDto turnCrank(UUID id) {
         GumballMachine gumballMachine = repository.getById(id);
-        GumballMachineDto dto = new GumballMachineDto(gumballMachine);
-        stateService.getStateFrom(dto).turnCrank();
-        return super.update(id, dto);
+        stateService.getStateFrom(gumballMachine).turnCrank();
+        return super.update(id, new GumballMachineDto(gumballMachine));
     }
 
     @Override
     public GumballMachineDto dispense(UUID id) {
         GumballMachine gumballMachine = repository.getById(id);
-        GumballMachineDto dto = new GumballMachineDto(gumballMachine);
-        stateService.getStateFrom(dto).dispense();
-        return update(id, dto);
+        stateService.getStateFrom(gumballMachine).dispense();
+        return update(id, new GumballMachineDto(gumballMachine));
     }
 
 }

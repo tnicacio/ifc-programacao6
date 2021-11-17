@@ -1,13 +1,15 @@
 package com.tnicacio.gumball.states;
 
-import com.tnicacio.gumball.dtos.GumballMachineDto;
+import com.tnicacio.gumball.entities.GumballMachine;
 import com.tnicacio.gumball.entities.enums.StateType;
-import org.springframework.stereotype.Component;
 
-@Component
 public class NoCreditState implements State {
 
-    private GumballMachineDto gumballMachine;
+    private GumballMachine gumballMachine;
+
+    public NoCreditState(GumballMachine gumballMachine) {
+        this.gumballMachine = gumballMachine;
+    }
 
     @Override
     public void insertCoin() {
@@ -27,11 +29,6 @@ public class NoCreditState implements State {
     @Override
     public void dispense() {
         throw new IllegalStateException("Crank turned but no coin inserted");
-    }
-
-    @Override
-    public void setMachine(GumballMachineDto gumballMachine) {
-        this.gumballMachine = gumballMachine;
     }
 
 }

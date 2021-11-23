@@ -57,4 +57,4 @@ no formato wma. *Obs*: a classe WmaPlay não pode ser modificada.
 
 
 ## Diagrama de classes da solução
-
+![ifc-adapter-1](https://user-images.githubusercontent.com/50798315/142958526-8303c036-d6cc-4344-ba6c-3c9222006796.png)
